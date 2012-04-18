@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+	<link href="style/stylesheet.css" rel="stylesheet" type="text/css">
+	<title>UI Builder: Customising a Control</title>
+</head>
+<body>
+	<div id="header">
+		<h6>
+			<a href = "../uibuilder.html">Marmalade Studio UI Builder</a> &gt;
+			<a href = "uibuildercustomisingacontrol.html">Customising a Control</a> &gt;
+		</h6>
+		<hr id="topBar" />
+	</div>
+
+	<h2>Customising a Control</h2>
+<!-- end header -->
+
+
+<h3>
+Adding a texture
+</h3>
+<ol>
+    <li>
+    Select the control on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Find the texture property
+    </li>
+    <li>
+    If the property is greyed out, click the Override icon
+    </li>
+    <li>
+    Click the Change icon<br>
+    </li>
+    <li>
+    Select -=new=-
+    </li>
+    <li>
+    Select your .group file
+    </li>
+    <li>
+    Choose a texture file (tga, bmp, gif or png) and press Open<br>
+    </li>
+    <li>
+    Click the Reset Viewer icon to load the texture
+    </li>
+</ol>
+
+<h3>Adding a font</h3>
+<ol>
+    <li>
+    Select the control on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Find the font property
+    </li>
+    <li>
+    Select -=new=-
+    </li>
+    <li>
+    Select your .group file
+    </li>
+    <li>
+    Choose a gxfont file (created by the Font Builder) and press Open<br>
+    </li>
+    <li>
+    Click the Reset Viewer icon to load the font
+    </li>
+</ol>
+
+<h3>Changing a Control's colour</h3>
+<ol>
+    <li>
+    Add a Control by dragging it from the palette onto the viewer<br>
+    </li>
+    <li>
+    Select the Control on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Change the RGBA values or click the icon to bring up the colour picker
+    </li>
+</ol>
+
+<img class= "screenshots" src="images/uibuildercolour.jpg" alt="Changing the button colour" >
+<br />
+
+<h3>Re-sizing a button</h3>
+<p>
+If a button is not within a layout its minimum and maximum size must be overridden before it can be resized:
+</p>
+<ol>
+    <li>
+    Select the button on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Find the sizeMax property
+    </li>
+    <li>
+    Click the Override icon
+    </li>
+    <li>
+    Specify a larger size or (-1,-1) if you wish there to be no maximum size
+    </li>
+    <li>
+    Repeat steps 3 - 5 for the sizeMin property
+    </li>
+    <li>
+    If the button is not within a layout it can be resized by adjusting the size property of re-sizing the button within the viewer<br>
+    </li>
+    <li>
+    If the button is within an layout it will expand to it's sizeMax property if the space is available<br>
+    </li>
+</ol>
+
+<h3>Changing a button texture</h3>
+<ol>
+    <li>
+    Add a button by dragging it from the palette onto the viewer
+    </li>
+    <li>
+    Select the button on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Find the greyed out buttonUp property
+    </li>
+    <li>
+    Click the override icon
+    </li>
+    <li>
+    Click the change icon
+    </li>
+    <li>
+    Select -=new=-
+    </li>
+    <li>
+    Select your .ui file
+    </li>
+    <li>
+    Enter a name (e.g '&lt;button_texture&gt;') and press OK
+    </li>
+    <li>
+    Switch to the Style Editor
+    </li>
+    <li>
+    Change the texture property
+    </li>
+    <li>
+    Select -=new=-
+    </li>
+    <li>
+    Select your .group file
+    </li>
+    <li>
+    Choose a texture file (tga, bmp, gif or png) and press Open
+    </li>
+    <li>
+    Click the Reset Viewer icon to update the texture
+    </li>
+</ol>
+
+<br />
+<h3>Adding an icon to a button</h3>
+<ol>
+    <li>
+    Add a button by dragging it from the palette onto the viewer
+    </li>
+    <li>
+    Select the button on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Set the caption to blank
+    </li>
+    <li>
+    Drag an Image from the palette onto the button
+    </li>
+    <li>
+    Change the texture on the Image to for example deletekey_symbol
+    </li>
+    <li>
+    Position the Image on the button manually
+    </li>
+</ol>
+
+<h4>In order to re-size the icon:</h4>
+<ol>
+    <li>
+    Select the Image on the viewer or within the element hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Set the sizeToContent to false
+    </li>
+    <li>
+    Re-size the icon within the viewer or by changing the size property
+    </li>
+</ol>
+
+<h4>In order to have the icon centre automatically:</h4>
+<ol>
+    <li>
+    Switch to the Layout Editor
+    </li>
+    <li>
+    Change the layout on the button by dragging ChangeLayout/Layered onto the button in the hierarchy
+    </li>
+    <li>
+    Select the Image
+    </li>
+    <li>
+    Set the alignV property to middle
+    </li>
+    <li>
+    Set the alignH property to centre
+    </li>
+</ol>
+
+
+<!-- begin footer -->
+	<div id="footer">
+		<hr>
+		<address>
+			<small>
+			(c)&nbsp;2012 <a target="_blank" href="http://www.madewithmarmalade.com/">Marmalade</a>. All rights reserved.
+			</small>
+		</address>
+	</div>
+</body>
+</html>

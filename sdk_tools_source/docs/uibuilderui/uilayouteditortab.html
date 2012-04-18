@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+	<link href="../style/stylesheet.css" rel="stylesheet" type="text/css">
+	<title>UI Builder: Layout Editor Tab</title>
+</head>
+<body>
+	<div id="header">
+		<h6>
+			<a href = "../../uibuilder.html">Marmalade Studio UI Builder</a> &gt;
+			<a href = "../uibuilderui.html">User Interface</a> &gt;
+			<a href = "uilayouteditortab.html">Layout Editor Tab</a> &gt;
+		</h6>
+		<hr id="topBar" />
+	</div>
+
+	<h2>Layout Editor Tab</h2>
+<!-- end header -->
+
+
+<p>
+This is very similar to the Element Editor except it is the hierarchy of layout, layout item containers and focus handlers. The hierarchy does not match that of the file, but is a logical hierarchy, compare:<br>
+    <div>
+      <table border=1 bordercolor=#000000 cellpadding=3 cellspacing=0 height=190 id=gxes width=609>
+        <tbody>
+        <tr>
+          <td valign=top>
+            File<br>
+          </td>
+          <td valign=top>
+            Element Editor
+          </td>
+          <td valign=top>
+            Layout Editor
+          </td>
+        </tr>
+        <tr>
+          <td valign=top>
+            Element&nbsp;&nbsp; &nbsp;<br>
+            &nbsp;&nbsp; &nbsp;Sub Element 1<br>
+            &nbsp;&nbsp; &nbsp;Sub Element 2<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Sub Sub Element<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Layout 2<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;*Sub Sub Element<br>
+            &nbsp;&nbsp; &nbsp;Layout<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;*Sub Element 1<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;*Sub Element 2
+          </td>
+          <td width=33.33%>
+            Element<br>
+            &nbsp;&nbsp;&nbsp; Sub Element 1&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp; Sub Element 2<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Sub Sub Element<br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </td>
+          <td width=33.33%>
+            Layout<br>
+            &nbsp;&nbsp;&nbsp; *Sub Element 1<br>
+            &nbsp;&nbsp;&nbsp; *Sub Element 2<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Layout 2<br>
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; *Sub Sub Element<br>
+            <br>
+            <br>
+            <br>
+            <br>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+</p>
+
+
+<!-- begin footer -->
+	<div id="footer">
+		<hr>
+		<address>
+			<small>
+			(c)&nbsp;2012 <a target="_blank" href="http://www.madewithmarmalade.com/">Marmalade</a>. All rights reserved.
+			</small>
+		</address>
+	</div>
+</body>
+</html>

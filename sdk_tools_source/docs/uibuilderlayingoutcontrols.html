@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+	<link href="style/stylesheet.css" rel="stylesheet" type="text/css">
+	<title>UI Builder: Laying-Out Controls</title>
+</head>
+<body>
+	<div id="header">
+		<h6>
+			<a href = "../uibuilder.html">Marmalade Studio UI Builder</a> &gt;
+			<a href = "uibuilderlayingoutcontrols.html">Laying-Out Controls</a> &gt;
+		</h6>
+		<hr id="topBar" />
+	</div>
+
+	<h2>Laying-Out Controls</h2>
+<!-- end header -->
+
+
+<p>
+Layouts are used within IwUI to arrange child elements within the available space. If a control is not within a layout it can be moved and re-sized freely. However if a control is within a layout it can re-size and re-position itself automatically depending on the space available.
+</p>
+<p>
+Applications can be made up from elements and controls nested within a layout tree so that the application will adjust suitably for a wide range of screen sizes.
+</p>
+
+<h3>Aligning Controls</h3>
+<p>
+With some layouts it may not always be possible to align a control to all edges of screen. Horizontal and Vertical layouts arrange the controls one after another and it is not possible to align a control with the right or bottom edge respectively. In the case of the Grid layout it is important to set the sizeToSpace property true to ensure the grid expands to fit space available.
+</p>
+
+<h4>How to align controls on a Panel</h4>
+<ol>
+    <li>
+    Add a Panel by dragging it from the Palette onto viewer.
+    </li>
+    <li>
+    Change the Panels layout by dragging a Layered layout from the ChangeLayout section of the Palette onto the element named "Base" in the element hierarchy.
+    </li>
+    <li>
+    Ensure the Base element is highlighted and drag any of the Controls from the Palette onto the Viewer (it be aligned automatically)
+    </li>
+</ol>
+
+<h4>Aligning an existing control</h4>
+<ol>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Select the element or control in the Viewer or Element Hierarchy<br>
+    </li>
+    <li>
+    Adjust the alignV property in Element Editor
+    </li>
+    <li>
+    Click the Refresh Viewer Data icon if the Viewer does not update<br>
+    </li>
+</ol>
+
+<h3>Using a Grid layout</h3>
+<ol>
+    <li>
+    Add a Grid layout by dragging it from the Palette onto the viewer&nbsp;
+    </li>
+    <li>
+    Switch to the Layout Editor
+    </li>
+    <li>
+    Select CIwUILayoutGrid in the Layout Hierarchy
+    </li>
+    <li>
+    To change the number of rows or columns edit the numRows or numColumns property
+    </li>
+    <li>
+    To ensure the grid expands to fit the entire screen set the sizeToSpace property to true
+    </li>
+    <li>
+    To change a controls row or column select the control within Viewer, Element Hierarchy or Layout Hierarchy.
+    </li>
+    <li>
+    Change the row or column property
+    </li>
+    <li>
+    Change the rowSpan or columnSpan property to allow the control the span multiple rows or columns<br>
+    </li>
+</ol>
+
+<h3>Changing the background</h3>
+<ol>
+    <li>
+    Add a Layered layout by dragging it from the Palette onto the Viewer or into the Element Hierarchy<br>
+    </li>
+    <li>
+    Add an Image by dragging it from the Palette onto Viewer into the Layered layout on the Element Hierarchy
+    </li>
+    <li>
+    Switch to the Element Editor
+    </li>
+    <li>
+    Select the Image in the Element Hierarchy
+    </li>
+    <li>
+    Set the sizeToContent property to false<br>
+    </li>
+    <li>
+    Click the Change icon on the texture property
+    </li>
+    <li>
+    Select -=new=-
+    </li>
+    <li>
+    Select your .group file
+    </li>
+    <li>
+    Choose a texture file (tga, bmp, gif or png) and press Open<br>
+    </li>
+    <li>
+    Click the Reset Viewer icon to update the texture
+    </li>
+</ol>
+
+
+<!-- begin footer -->
+	<div id="footer">
+		<hr>
+		<address>
+			<small>
+			(c)&nbsp;2012 <a target="_blank" href="http://www.madewithmarmalade.com/">Marmalade</a>. All rights reserved.
+			</small>
+		</address>
+	</div>
+</body>
+</html>

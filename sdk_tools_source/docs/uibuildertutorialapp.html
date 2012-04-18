@@ -1,0 +1,422 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+	<link href="style/stylesheet.css" rel="stylesheet" type="text/css">
+	<title>UI Builder: Using UI Builder to make an Application</title>
+</head>
+<body>
+	<div id="header">
+		<h6>
+			<a href = "../uibuilder.html">Marmalade Studio UI Builder</a> &gt;
+			<a href = "uibuildertutorialapp.html">Using UI Builder to make an Application</a> &gt;
+		</h6>
+		<hr id="topBar" />
+	</div>
+
+	<h2>Using UI Builder to make an Application</h2>
+<!-- end header -->
+
+
+<p>
+This section shows how to start using UI files from UI builder in Marmalade projects.
+</p>
+
+<p>
+It is assumed you have read the "Creating an Application" section of the User Guide, and have the HelloWorld application running.
+</p>
+
+<p>
+It is also assumed you can build a UI file including buttons and labels in UIBuilder - see the "Creating a Calculator" for more instructions.
+</p>
+
+<p>
+Beginning with the HelloWorld source, this example will accept clicks on a button and update a label with the number of clicks.
+</p>
+
+<h3>
+STEP 1: A simple application framework
+</h3>
+
+<p>
+The UI example will use the same Init, Destroy, Update and Render framework.
+</p>
+
+<p><strong><em>
+You can use the files in (Marmalade)\examples\ToolsTutorials\UIBuilder\UITutorial_1 as a starting point.
+</em></strong></p>
+
+<h3>
+STEP 2: Making the UI in UIBuilder
+</h3>
+
+<p>
+You should now have a project folder and a 'data' folder inside that.<br>
+In UIBuilder create a new ui project and choose this 'data' folder to hold the ui files we will create.
+</p>
+
+<p>
+UIBuilder will now populate your 'data' folder with the standard textures and elements provided by default with IwUI.
+</p>
+
+<ul>
+	<li>Create a new UI file called page.ui.</li>
+	<li>Drag a background onto the ui view.</li>
+	<li>Drag a button and a label onto the view.</li>
+	<li>Leave the default names 'Button' and 'Label' as we will use them later.</li>
+	<li>Change the 'Button' caption to "Click Me" and the 'Label' caption to "0"</li>
+	<li>Add an OnButtonClick item on 'Button' called "OnClick"</li>
+</ul>
+
+<p>
+Your UI file should now look similar to this:
+</p>
+
+<div class="fragment"><pre class="fragment">
+CIwUIElement
+{
+    name "page"
+    CIwUIImage
+    {
+        name "Background"
+        pos  { 0 0 }
+        size  { 320 480 }
+        texture "background"
+        CIwUILabel
+        {
+            name "Label"
+            pos  { 131 246 }
+            size  { 49 37 }
+            style <label_medium>
+            caption "0"
+        }
+        CIwUIButton
+        {
+            name "Button"
+            pos  { 114 178 }
+            size  { 89 37 }
+            style &lt;button&gt;
+            caption "Click Me"
+            OnButtonClick  { "OnClick" }
+        }
+    }
+}
+</pre></div>
+
+<h3>
+STEP 3: Updating the Project makefile (mkb)
+</h3>
+
+<p>
+The mkb file needs to know about IwUI so the makefile builder can pull in all the depencencies and setup paths to headers and libraries.
+</p>
+
+<p>
+Change the subprojects lines to read:
+</p>
+
+<div class="fragment"><pre class="fragment">
+subprojects
+{
+    iwui
+}
+</pre></div>
+
+<p>
+This will bring IwUI into the project as well as all its dependencies (eg: it will bring iwutil and iwgx etc. in automatically)
+</p>
+
+<p>
+Rebuild the mkb and when the project opens in your development environment you can see all the modules that have been added to the project.
+</p>
+
+<h3>
+STEP 4: Basic UI Architecture
+</h3>
+
+<p><strong><em>
+In UITutorialMain.cpp
+</em></strong></p>
+
+<p>
+We need to make a couple of changes to the main loop, firstly to add Pointer (Mouse and Touch) support, add s3ePointerUpdate() at the top of the while loop.
+</p>
+
+<div class="fragment"><pre class="fragment">
+    while (1)
+    {
+        s3eDeviceYield(0);
+        s3eKeyboardUpdate();
+        s3ePointerUpdate();
+</pre></div>
+
+<p>
+Secondly, now IwGX is handling the rendering we do not need to directly call s3e rendering functions and can get rid of the call to s3eSurfaceShow();
+</p>
+
+<div class="fragment"><pre class="fragment">
+        ExampleRender();
+    }
+</pre></div>
+
+<p><strong><em>
+In UITutorial.cpp
+</em></strong></p>
+<p>
+This file will change quite a lot, while it keeps the Init, Destroy, Update and Render pattern. Here it is in full:
+</p>
+
+<p>
+To use UI you have to initialise IwGx IwUI, and create singletons for CIwUIController and CIwUIView. If you use your own derived versions of Controller and View, new them here instead.<br />
+On shutdown these are removed in reverse order.<br />
+Controller and View need an update call, and View needs to be rendered. Then Gx puts the result on screen.
+</p>
+
+<div class="fragment"><pre class="fragment">
+// Includes
+#include "IwGx.h"
+#include "IwUI.h"
+//--------------------------------------------------------------------------
+void ExampleInit()
+{
+    IwGxInit();
+    IwUIInit();
+
+    //Instantiate the view and controller singletons.
+    new CIwUIController;
+    new CIwUIView;
+}
+//--------------------------------------------------------------------------
+void ExampleShutDown()
+{
+    delete IwGetUIController();
+    delete IwGetUIView();
+
+    IwUITerminate();
+    IwGxTerminate();
+}
+//--------------------------------------------------------------------------
+bool ExampleUpdate()
+{
+    IwGetUIController()->Update();
+    IwGetUIView()->Update(25);
+
+    return true;
+}
+//--------------------------------------------------------------------------
+void ExampleRender()
+{
+    IwGxClear(IW_GX_COLOUR_BUFFER_F | IW_GX_DEPTH_BUFFER_F);
+
+    IwGetUIView()->Render();
+
+    IwGxFlush();
+    IwGxSwapBuffers();
+}
+</pre></div>
+
+<h3>
+STEP 5: Loading a UI file
+</h3>
+
+<p>
+Marmalade resources are loaded from Group files.
+Once loaded a top level UI element is added to the View - this will make all its children visible on screen too. CreateFromResource makes a copy of the loaded element that becomes owned by the view.
+</p>
+
+<div class="fragment"><pre class="fragment">
+void ExampleInit()
+{
+    IwGxInit();
+    IwUIInit();
+
+    //Instantiate the view and controller singletons.
+    new CIwUIController;
+    new CIwUIView;
+
+    // Load the UITutorial UI
+    IwGetResManager()->LoadGroup("UI.group");
+
+    // Add the built page to the view
+    CIwUIElement* pPage = CIwUIElement::CreateFromResource("page");
+    IwGetUIView()->AddElement(pPage);
+}
+</pre></div>
+
+<h3>
+STEP 6: Adding Interaction
+</h3>
+
+<p><strong><em>
+See the files in (Marmalade)\examples\ToolsTutorials\UIBuilder\UITutorial_2
+You may need to add the iwui_style folder at (Marmalade)\examples\IwUI\data\iwui_style
+</em></strong></p>
+
+<p>
+Marmalade IwUI supports signals and slots as a convenient way to add actions to UI events. The "OnClick" added to 'Button' above in its 'OnButtonClick' property is the name of a function to be called when that button is clicked. This function needs to be declared to IwUI so it can be found and called when required.
+</p>
+
+<p>
+I have added a CCounter class to handle clicks. In it's constructor we register a function pointer to use for the click signal.
+</p>
+
+<p>
+The OnClick function takes as an argument the element that sent the signal, but we don't need that for this example.
+</p>
+
+<div class="fragment"><pre class="fragment">
+class CCounter
+{
+public:
+    CCounter()
+    {
+        IW_UI_CREATE_VIEW_SLOT1(this, "CCounter", CCounter, OnClick, CIwUIElement*)
+    }
+
+    void OnClick(CIwUIElement*)
+    {
+    }
+}
+</pre></div>
+
+<p>
+Adding some simple functionality to the class, so it will increment the count, and update the label. We will set the label pointer up in the next step.
+</p>
+
+<div class="fragment"><pre class="fragment">
+class CCounter
+{
+public:
+    CCounter():m_Count(0),m_Label(NULL)
+    {
+        IW_UI_CREATE_VIEW_SLOT1(this, "CCounter", CCounter, OnClick, CIwUIElement*)
+    }
+
+    void OnClick(CIwUIElement*)
+    {
+        // Handle the click here
+        m_Count++;
+
+        // Create new label text
+        char buf[64];
+        sprintf(buf,"%d",m_Count);
+
+        // Set label text
+        m_Label->SetCaption(buf);
+    }
+
+public:
+    int         m_Count;
+    CIwUILabel* m_Label;
+};
+</pre></div>
+
+<p>
+We need to create a counter object and setup the CIwUILabel pointer. For simplicity in this example we will just use a global pointer to store the Counter.
+</p>
+
+<p>
+To update the Label we need a pointer to the copy of the Label resource that has been added to the View, so we request the element by name from the view.
+</p>
+
+<p>
+This is done in the Init function...
+</p>
+
+<div class="fragment"><pre class="fragment">
+CCounter* g_Counter = NULL;
+
+//--------------------------------------------------------------------------
+void ExampleInit()
+{
+    IwGxInit();
+    IwUIInit();
+
+    //Instantiate the view and controller singletons.
+    new CIwUIController;
+    new CIwUIView;
+
+    // Instantiate class to deal with events
+    g_Counter = new CCounter;
+
+    // Load the UITutorial UI
+    IwGetResManager()->LoadGroup("UI.group");
+
+    // Add the built page to the view
+    CIwUIElement* pPage = CIwUIElement::CreateFromResource("page");
+    IwGetUIView()->AddElement(pPage);
+
+    //Find the counter label
+    g_Counter->m_Label = (CIwUILabel*)pPage->GetChildNamed("Label");
+}
+
+...and cleaning up the Counter in ShutDown.
+
+//--------------------------------------------------------------------------
+void ExampleShutDown()
+{
+    delete g_Counter;
+
+    delete IwGetUIController();
+    delete IwGetUIView();
+
+    IwUITerminate();
+    IwGxTerminate();
+}
+</pre></div>
+
+<p>
+Build and run this example and you will see the label updating each time you click the button.
+</p>
+
+<p>
+More information about each stage of this process can be found in the <a href="../../docs/html/native/api_reference/iwuiapidocumentation/iwuiapioverview.html">IwUI reference documentation</a>.
+</p>
+
+<h3>
+STEP 7: Deploying to device
+</h3>
+
+<p>
+If you build and run the ARM release configuration you will see the deployment tool. This tool lets you generate an install package for any Marmalade supported device.
+</p>
+
+<p>
+The install package contains a version of your executable and some data. We specify the data to deploy by adding an assets block to the mkb.
+</p>
+
+<p>
+When you run your windows build IwUI uses IwResManager to output binary versions of the assets to data-ram/data-gles1. The device build only 
+needs these binary assets, so add the assets block:
+</p>
+
+<div class="fragment"><pre class="fragment">
+assets
+{
+    (data-ram\data-gles1)
+    ui.group.bin
+    iwui_style/style.group.bin
+}
+</pre></div>
+
+<p>
+Follow the steps in the deployment tool documentation to produce a deployment package for your chosen device.
+</p>
+
+<p>
+See <a href="../../docs/html/native/deployingtodevices.html">Deploying To Devices</a> and <a href="../../docs/html/native/deployment/main.html">Deployment Tool Reference</a> for more information.
+</p>
+
+
+<!-- begin footer -->
+	<div id="footer">
+		<hr>
+		<address>
+			<small>
+			(c)&nbsp;2012 <a target="_blank" href="http://www.madewithmarmalade.com/">Marmalade</a>. All rights reserved.
+			</small>
+		</address>
+	</div>
+</body>
+</html>

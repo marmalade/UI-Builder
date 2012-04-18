@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+	<link href="style/stylesheet.css" rel="stylesheet" type="text/css">
+	<title>UI Builder: Creating a Calculator</title>
+</head>
+<body>
+	<div id="header">
+		<h6>
+			<a href = "../uibuilder.html">Marmalade Studio UI Builder</a> &gt;
+			<a href = "uibuildertutorialcalculator.html">Creating a Calculator</a> &gt;
+		</h6>
+		<hr id="topBar" />
+	</div>
+
+	<h2>Creating a Calculator</h2>
+<!-- end header -->
+<ol> 
+    <li><strong>Creating a new project</strong></li> 
+    <ol type="a"> 
+        <li>Click on the "New Project..." Icon.</li> 
+        <li>Set the "Project Data Directory" to to the data directory of your project.<br /> 
+            Usually in Marmalade projects this is a directory called "data" under your main directory.</li> 
+        <li>Leave the Group file name as it is. This will create a "UI.group" file which will contain all your UI files and resources, your application will load this file to load everything. There will also be a "UI.uip" file created, this contains setting and preferences for the builder.</li> 
+        <li>Set the UI File to "calculator.ui". This will create your initial UI file.</li> 
+    </ol> 
+    <br />
+
+    <li><strong>Starting to build a UI</strong></li> 
+    <ol type="a"> 
+        <li>In the "Files" tab double click on the "calculator.ui" file to load it.</li> 
+        <li>Have a look around the screen. On the left we have the "Files" tab.<br /> 
+        This shows group files and their contents. Group files contain references to other files, like UI files, which contain UI hierarchies, ITX files, which contain property sets (more on those later), Textures, Fonts (as GXFONT files and their associated TGA files, as produced by ASFontBuilder) and even other GROUP files.</li> 
+        <li>Below the "Files" Tab are the Palette Tabs, that is the "Elements", "Others" and "Media" Tabs.<br /> 
+        These contain Elements and Properties that can be dragged onto the surface or the hierarchy.</li> 
+        <li>In the middle of the screen is the "Viewer" Tab.<br /> 
+        This is a WYSIWYG view of one element Hierarchy in the current file. You can edit the UI in a visual manner here. Currently this is just showing a grid backdrop. The "Source View" Tab behind this Tab shows the text of the current UI file (or any other file you "View Source" on).</li> 
+        <li>To the right we have our editors.<br /> 
+        The "UI Editor" is the main tab for the hierarchy and properties of the currently loaded UI file. The other tabs edit the property sets and materials in the project. The "UI editor" is split into two. The left hand side has a hierarchy of elements. layouts and other items in the current UI file (though this is actually slightly simplified compared with how it is stored in the file). The right hand side has a list of properties of the currently selected item.</li> 
+    </ol>
+    <br />
+    
+    <li><strong>Setting up a background</strong></li> 
+    <ol type="a"> 
+        <li>Drag "Snippets\Background" from the "Elements" Tab onto the "Viewer" Tab.<br /> 
+        This adds our "Background" image element as a child of our root element (called "calculator"), however as no layout is set, the "Background" does not fill the screen (yet).</li> 
+        <li>Click anywhere on the view, outside of the "Background" element, this should select the root item.</li> 
+        <li>Right click and select "Set Layout", this allows us to change the layout of the root element.<br /> 
+        The layout organises how children of an element are displayed.</li> 
+        <li>Choose the "Layered" layout, this simple type of layout layers all the elements one on top of another.<br /> 
+        The "Background" element should now fill the view.</li> 
+    </ol>
+    <br /> 
+    
+    <li><strong>Adding some elements and organising them</strong></li> 
+    <ol type="a"> 
+        <li>Drag a label and a button onto the viewer.</li> 
+        <li>Select the label, then holding down 'Ctrl' select the button, both of them should now be selected.</li> 
+        <li>Right click and select "group selected", this option will create a new element to hold our label and button.</li> 
+        <li>Choose "grid", this sets the type of layout of our new group element has.<br /> 
+        A grid puts the group elements children into squares on a grid.</li> 
+        <li>Drag "Grid_0" onto "Layered_0" further up in the hierarchy.<br /> 
+        This makes "Grid_0" a child the root and layered on top of the background instead of being a child of the background.</li> 
+        <li>Set the "SizeToContent" property on "Grid_0" to false.<br /> 
+        This sizes "Grid_0" to the whole screen.</li> 
+    </ol>
+    <br /> 
+    
+    <li><strong>Setting up our grid</strong></li> 
+    <ol type="a"> 
+        <li>Make sure the menu option "Preferences/Outline Hierarchy" is ticked and select the "Grid" layout in the hierarchy of the "UI Editor". This should now overlay red lines that show the grid squares on the view.</li> 
+        <li>Set the "numColumns" property to 4.</li> 
+        <li>Set the "numRows" property to 7.<br /> 
+        We should now have a 4 by 7 grid showing on the screen.</li> 
+    </ol>
+    <br /> 
+    
+    <li><strong>Setting up our first button</strong></li> 
+    <ol type="a"> 
+        <li>Select the button.</li> 
+        <li>Drag it into the square below the label.</li> 
+        <li>Right click and select "Set a Sizer Policy...".<br /> 
+        This sets a bunch of properties on the element to predefined values, these change how the size of the element is calculated.</li> 
+        <li>Select "ProportionalSize".<br /> 
+        This sets the Button to use a proportion of the overall layout size.</li> 
+        <li>If the button is not selected, select it, then click on the button again to go into caption editing mode.</li> 
+        <li>use 'Backspace' to delete the text and replace with "MC" then press 'Return' to exit.</li> 
+        <li>click on the white button on the colour property and change the colour to red.</li> 
+    </ol>
+    <br />
+    
+    <li><strong>Setting up the first row of buttons</strong></li> 
+    <ol type="a"> 
+        <li>Holding down 'ctrl' drag the MC button onto the grid position next to the it.<br /> 
+        This creates a copy of the button.</li> 
+        <li>Change its text to "M+".</li> 
+        <li>Copy into the next grid position and rename to "M-".</li> 
+        <li>Repeat for the last position on the row and rename to "MR".</li> 
+    </ol> 
+    <br />
+    
+    <li><strong>Setting up the operator buttons</strong></li> 
+    <ol type="a"> 
+        <li>Copy "MC" to the position below it.</li> 
+        <li>Change the text to "C" and the colour to light gray.</li> 
+        <li>Create the rest of the buttons in the row from this one, the captions are "+/-", "/" and "*".</li> 
+        <li>also below "*" is "-" and below that is "+" and below that is "=".</li> 
+    </ol> 
+    <br /> 
+    
+    <li><strong>The numeric buttons</strong></li> 
+    <ol type="a"> 
+        <li>copy "C" to the position below it.</li> 
+        <li>Change the text to "7" and the colour to white.</li> 
+        <li>Fill the rest of the row with "8" and "9".</li> 
+        <li>The row below has "4", "5" and "6".</li> 
+        <li>The row below has "1", "2" and "3".</li> 
+        <li>Below "1" copy "0" and below "3" copy ".".</li> 
+    </ol> 
+    <br />
+    
+    <li><strong>Final button tweaks</strong></li>
+    <ol type="a"> 
+        <li>Change the colour of "=" to orange.</li> 
+        <li>Select the "=" button if you haven't already.</li> 
+        <li>move the cursor over the handle on the bottom edge of the button, until it is the only handle visible.</li> 
+        <li>whilst holding down 'shift' drag the handle down into the grid position below.<br /> 
+        This changes the button so it spans 2 grid positions.</li> 
+        <li>do the same to the "0" but expand it to fill the position to its right.</li> 
+    </ol> 
+    <br /> 
+    
+    <li><strong>Setting up the label</strong></li>
+    <ol type="a"> 
+        <li>Select the label.</li> 
+        <li>click on the "Override" button next to the "SizeToContent" property.<br /> 
+        This property is set on the property set pointed to by the style property, however we wish to change it for this label.</li> 
+        <li>Set the "SizeToContent" to false.<br /> 
+        This means the size is not dictated by the size of its contents.</li> 
+        <li>Use 'shift' drag like we did for the "=" and "0" buttons to get the label to span all 4 positions of the top row.</li> 
+        <li>override the font and click on the change button and select "font_huge".<br /> 
+        This changes the font.</li> 
+        <li>Change the caption to "0".</li> 
+        <li>Override and change the "alignH" to "right".<br /> 
+        This sets the text to right alignment.</li> 
+        <li>drag the handle at the bottom edge of the label without 'shift' held down to change the size of the label.</li> 
+    </ol>
+    <br />
+</ol> 
+
+
+<!-- begin footer -->
+	<div id="footer">
+		<hr>
+		<address>
+			<small>
+			(c)&nbsp;2012 <a target="_blank" href="http://www.madewithmarmalade.com/">Marmalade</a>. All rights reserved.
+			</small>
+		</address>
+	</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+platform WIN32
+buildtype VC10
+
+includepaths
+{
+	Modules
+	iwuiviewer\h
+	..\..\AirplayStudioDirector\iwproject
+}
+
+includepath "$MARMALADE_ROOT\s3e\h" #s3einclude
+
+options
+{
+    output-name=../../../tools/UIBuilder/UIBuilder.exe
+	x86
+}
+
+files
+{
+    [Modules]
+	(Modules)
+	IwUIEdMod.cpp
+	IwUIEdMod.h
+	IwUIEdHeader.h
+	IwUIEdData.cpp
+	IwUIEdData.h
+	IwUIEdProjectUI.h
+	IwUIEdProjectUI.cpp
+
+	[Panes]
+	(Modules)
+	UIEdPane.h
+	UIEdPane.cpp
+	UIEdAttrPane.h
+	UIEdAttrPane.cpp
+	UIEdPalette.h
+	UIEdPalette.cpp
+	UIEdProject.h
+	UIEdProject.cpp
+	UIEdHierarchy.h
+	UIEdHierarchy.cpp
+	UIEdSource.h
+	UIEdSource.cpp
+
+	[Host]
+	(Modules)
+	Host.h
+	Host.cpp
+	(iwuiviewer/h)
+	IwHostBase.h
+
+	[Data]
+	(../../../tools/UIBuilder/Data)
+	Menu.ast
+	VLayoutShared.svl
+	Options.ast
+	uimetatemplate.txt
+
+	(../../../tools/UIBuilder/Styles/iwui_style)
+	# Gets copied on project creation
+	expmetapalette.ui
+	iwui_propertysets.itx
+
+	[Project]
+	(../../AirplayStudioDirector/IwProject)
+	IwProject.h
+	IwProject.cpp
+	IwSetProjectDialog.h
+	IwSetProjectDialog.cpp
+}
+
+subproject ASD2_0Base
+subproject ASD2_0Files

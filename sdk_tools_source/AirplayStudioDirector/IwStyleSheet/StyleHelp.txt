@@ -1,0 +1,154 @@
+0  /               |          \ 0
+11 -  <Title>      | <IWLOGO>
+26 -     <Help>    |
+60 \               |          _ 58
+	\ |  |                   /
+	0 18 36        W-55-7    W
+
+
+<Title> is in "Trebuchet MS 9pt Bold"
+<Help> is in "Trebuchet MS 9pt"
+<IWLOGO> is in the resources (File at: c:/dev/sdk/main/resources/iconsAndLogos/Icons/iwlogosml_55x58.bmp)
+
+
+Buttons:
+   /\|----------|
+24*y|| <text>   |
+   \/|__________|
+     <---------->
+	     72*x
+x and y are usually 1,1
+<Text> is in Trebuchet MS 8pt, Standard names are OK,Cancel,Browse... (or ...)
+	if it opens a dialog suffix with ...
+
+
+Button Bar:
+  /\
+ 8 |
+  \/
+  /\
+   |
+24 |     Button       Button
+   |
+  \/
+  /\
+ 8 |
+  \/
+    <-><--------><-><--------><-->
+     8    72*x    s    72*x    8
+
+or Bottom Button Bar:
+  /\
+   |
+16 |   -----------------------
+   |
+  \/
+  /\
+   |
+24 |     Button       Button
+   |
+  \/
+  /\
+ 8 |
+  \/
+    <-><--------><-><--------><-->
+     8    72*x    s    72*x    8
+
+Where s can be 4 (for linked buttons), 12 for un-linked buttons or 12+* for adding a stretchable space
+(eg to do [Exit         Back Next         Finish ] add buttons with width 12,12+*,4,12+*
+
+Controls:
+  /\
+ * |
+  \/
+  /\
+ 8 |
+  \/
+  /\
+   |
+24 |     Label:   Control     [  Button  ]
+   |
+  \/
+  /\
+ 8 |
+  \/
+  /\
+   |
+24 |    Label2:   Control2    [  Button2 ]
+   |
+  \/
+  /\
+ 8 |
+  \/
+  /\
+ * |
+  \/
+    <-><------><-><----------><-><-------><->
+     8          4             [4         ] 8
+
+or:
+
+  /\
+ * |
+  \/
+  /\
+ 8 |
+  \/
+  /\
+12 |    Label:
+  \/
+  /\
+ 2 |
+  \/
+  /\
+   |
+24 |    Control    [  Button  ]
+   |
+  \/
+  /\
+ 8 |
+  \/
+  /\
+12 |    Label2:
+  \/
+  /\
+ 2 |
+  \/
+  /\
+   |
+24 |    Control2   [  Button2 ]
+   |
+  \/
+  /\
+ 8 |
+  \/
+  /\
+ * |
+  \/
+    <-><----------><-><-------><->
+     8             [4         ] 8
+
+where * stretches (proportionately) to fit the space
+
+
+Classes in IwStyleSheet.h:
+CIwStyleHeader																	The title bar
+	CIwStyleHeader(wxWindow* Parent,const char* title="",const char* help="")	Create the title bar
+	void SetText(bool Title,const char* Text)									Sets the Title or Help Text
+	static wxFont GetFont(int Pitch=8,bool Bold=false)							Get our font
+CIwStyleDialog																	Base for dialog boxes
+CIwStyleButton																	A Button (Size is in units of 24x72)
+CIwStyleButtonBar																Create a button bar (ie like for the bottom of the window)
+	CIwStyleButtonBar(wxWindow* parent,bool HasBar=true)						Constructor (for non bottom bars set HasBar to false)
+	void Clear(bool delete_windows=false)										Start again
+	void Add(CIwStyleButton* Button=NULL,EIwStyleStretchSpace space=SPACE_LARGE) Add a space and a Button to the bar (space is not added at begining unless it is PROP)
+	CIwStyleButtonBar::SPACE_SMALL												the next button is related to the last
+	CIwStyleButtonBar::SPACE_LARGE												the next button is un-related to the last
+	CIwStyleButtonBar::SPACE_PROP												add a proportional spacer
+CIwStyleCtrlGroup																A Sizer for putting controls into
+	CIwStyleCtrlGroup(bool SideLabels,bool Button)								SideLabels says put labels at the side (else on top), Button adds space for a button after the control
+	void Clear(bool delete_windows=false)										Start again
+	void Add(wxWindow* Ctrl,const char* Label)									Add a Labeled control or panel
+	void Add(wxWindow* Ctrl,wxCheckBox* Check)									Add a control or panel labeled with a check box
+	void Add(wxCheckBox* Ctrl)													Add a Check box (does not need a label)
+	void Add(CIwStyleButton* Button)											Add a button to the left of the current control

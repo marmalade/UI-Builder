@@ -1,0 +1,43 @@
+includepaths
+{
+	Files
+	../AirplayStudioDirector/IwAttr
+	../AirplayStudioDirector/IwSourceControl
+}
+
+files
+{
+	[FileBase]
+	(Files)
+	IwASDFileHeader.h
+	IwASDFile.h
+	IwASDFile.cpp
+	IwASDFilename.h
+	IwASDFilename.cpp
+	IwASDITX.cpp
+	IwASDITX.h
+	[FilePanels]
+	(Files)
+	IwASDTree.h
+	IwASDTree.cpp
+	IwASDReport.h
+	IwASDReport.cpp
+	IwASDSource.h
+	IwASDSource.cpp
+	IwASDAttr.h
+	IwASDAttr.cpp
+	IwASDTexture.h
+	IwASDTexture.cpp
+
+	[Attribute_Editor]
+	(../AirplayStudioDirector/iwattr)
+	IwAttrDesc.h
+	IwAttrDesc.cpp
+	IwAttrDescGrid.h
+	IwAttrDescGrid.cpp
+
+	[Source_Control]
+	(../AirplayStudioDirector/IwSourceControl)
+	IwWinSourceControl.h
+	IwWinSourceControl.cpp
+}

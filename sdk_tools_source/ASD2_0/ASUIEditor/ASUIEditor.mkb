@@ -1,0 +1,4 @@
+#!/usr/bin/env mkb
+
+subproject ASUIEditor
+subproject ../../../tools/wx/wxWidgets

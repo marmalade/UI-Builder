@@ -1,0 +1,82 @@
+defines
+{
+	IW_GXFONT_TTF
+
+	# Ensure we don't include iwui as an extproject
+	IW_MKF_IWVIEWER
+}
+
+if {{ os.name == 'nt' }}
+	option buildenv=vc10
+
+options
+{
+	x86
+	strict
+	enable-exceptions
+	compile-debug-as-release
+	output-name=../../../../tools/UIBuilder/Viewer/Viewer
+
+	# Could create an extension to avoid this
+	enable-stdinc
+	use-sdklibs=1
+}
+
+librarys
+{
+	kernel32.lib
+}
+
+subprojects
+{
+	iwui
+	iwlocalise
+}
+
+includepaths
+{
+	h
+}
+
+files
+{
+	[h]
+	(h)
+	IwConfig.h
+	IwHostBase.h
+	IwHostLink.h
+	IwLock.h
+
+	IwUIApp.h
+	IwUIViewer.h
+
+	BucketAllocator.h
+	ClassFactory.h
+	Drawing.h
+	DropProperty.h
+	DropShadow.h
+	ElementContainer.h
+	Input.h
+	Localise.h
+	Parser.h
+	Util.h
+
+	[source]
+	(source)
+	IwConfig.cpp
+	IwHostLink.cpp
+	IwLock.cpp
+	
+	IwUIApp.cpp
+	IwUIViewer.cpp
+
+	ClassFactory.cpp
+	Drawing.cpp
+	DropProperty.cpp
+	DropShadow.cpp
+	ElementContainer.cpp
+	Input.cpp
+	Localise.cpp
+	Parser.cpp
+	Util.cpp
+}

@@ -1,0 +1,2068 @@
+/*text stuff*/
+
+body
+	{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 70%;
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #ffffff
+	}
+
+h1, h2, h3, h4, h5 {
+	text-align: left;
+
+}
+
+p {
+	font-size: 100%;
+	font-style: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 13px;
+	margin-bottom: 10px;
+	font-weight: normal;
+	color: #000000;
+}
+
+/*heading for homepage*/
+h1	{
+	font-family: Helvetica,"Trebuchet MS", Arial,sans-serif;
+
+
+	font-size: 280%;
+	font-style: normal;
+	padding-top: 20px;
+	padding-bottom: 15px;
+	padding-left: 0px;
+	padding-right: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #999999;
+	font-weight: normal;
+
+	}
+	
+/*headings for all other pages*/	
+h2	{
+	font-size: 190%;
+	font-style: normal;
+	padding-top: 20px;
+	padding-bottom: 15px;
+	padding-left: 0px;
+	padding-right: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #666666;
+	}
+	
+h3	{
+	font-size: 140%;
+	font-style: normal;
+	padding-top: 25px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #666666;
+	font-weight: bold;
+	}
+
+h4	{
+	font-size: 110%;
+	font-style: normal;
+	padding-top: 25px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #666666;
+	font-weight: bold;
+	}
+
+h5	{
+	font-size: 100%;
+	font-style: normal;
+	padding-top: 15px;
+	padding-bottom: 2px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #666666;
+	font-weight: bold;
+	}
+	
+/*breadcrumbs*/	
+h6	{
+	font-size: 80%;
+	font-style: normal;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #808080;
+	font-weight: bold;
+
+	}
+	h6 a:link {color: #808080;}
+	h6 a:visited {color: #808080;}
+	h6 a:active {color: #404040;}
+	h6 a:hover {color: #404040;}
+	
+	h6 A {text-decoration: none;}
+
+
+/* To assist with clashing padding between elements (avoid huge amounts of whitespace) */
+.noPadding
+{
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.noTopPadding
+{
+	padding-top: 0px;
+}
+.noBottomPadding
+{
+	padding-bottom: 0px;
+}
+.minimalPadding
+{
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+
+.compactNoBottom
+{
+	padding-bottom: 0px;
+}
+
+/* Divs -----------------------------------------------------------*/
+
+div
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+div.arcade-info
+{
+	background-color: #EEFFEE;
+	border-style: solid;
+	border-color: #99DD99;
+	border-width: 1px;
+	padding: 8px 6px 6px 14px;
+	margin: 8px 20px 4px 8px;
+}
+
+#header
+{
+	background:url('header.jpg');
+	background-repeat:no-repeat;
+	background-attachment:scroll;
+	background-position: top right; 
+	padding-top: 40px;
+	padding-bottom: 12px;
+    margin-right: -12px;
+	text-align: left;
+}
+#topBar
+{
+margin-right: 12px;
+}
+
+#footer 
+{
+	padding-top: 50;
+	text-align: right;
+}
+
+.versionInfo
+{
+	position: relative;
+	float: left;
+	width: 50%;
+	text-align: left
+}
+
+dd
+{
+    margin-left: 20px;
+}
+
+/* HOMEPAGE */
+
+.homepage #toptext {
+	padding-top: 0px;
+	padding-bottom: 0px;
+
+}
+
+.homepage #mainpageImage {
+	text-align: center;
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+/* */
+.columns
+{
+clear:both;
+padding-bottom:10;
+width: 100%;
+overflow:hidden;
+}
+
+.column1
+{
+width:200px;
+float:left;
+}
+
+
+.columns2
+{
+clear:both;
+padding-bottom:10;
+width: 95%;
+overflow:hidden;
+margin-left: 5px;
+}
+
+.column75
+{
+width:75px;
+float:left;
+text-align: center;
+}
+
+.column100
+{
+width:100px;
+float:left;
+text-align: center;
+}
+
+.column100Left
+{
+width:100px;
+float:left;
+text-align: left;
+}
+
+.column120
+{
+width:120px;
+float:left;
+text-align: left;
+}
+
+.column150
+{
+width:150px;
+float:left;
+text-align: left;
+}
+
+.column200
+{
+width:200px;
+float:left;
+
+text-align: left;
+}
+
+.column300
+{
+width:300px;
+float:left;
+
+text-align: left;
+}
+
+.column400
+{
+width:400px;
+float:left;
+
+text-align: left;
+}
+
+ul.tableslist
+{
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-top:  0;
+  margin: 0;
+  padding: 0;
+  margin-left: 10;
+}
+
+ul.tableslist li {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 0px;
+  margin-top: 7px;
+  margin-bottom: 0px;
+  }
+  
+table.simpleTable {
+	margin-left: 20px;
+	border-style: none;
+}
+
+table.simpleTable td,th{
+	padding: 5px;
+	vertical-align: top;
+}
+
+table.simpleTableCompact {
+	margin-left: 20px;
+	border-style: none;
+}
+
+table.simpleTableCompact td{
+	padding: 5px;
+	padding-top: 2px;
+	vertical-align: top;
+}
+
+
+.inpageHeadings
+{
+	font-size: 120%;
+	font-style: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 23px;
+	margin-bottom: 8px;
+	color: #404040;
+	font-weight: bold;
+}
+
+.relatedlinks
+{
+	font-size: 100%;
+	font-style: normal;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #404040;
+	font-weight: normal;
+}
+
+img {
+  border-style: none;
+}
+
+img.screenshots {
+  padding-top: 5;
+  padding-bottom: 5;
+  margin-top: 5;
+  margin-bottom: 5;
+}
+
+img.conventionKey {
+  padding: 0px;
+  height: 30px;
+  width: 30px;
+}
+
+/* LISTS UL and LI *****************************/
+
+/* Default:
+	The default bullet type uses sensible spacing and padding around the list to give good whitespace 
+	and place the list nearer any leading text than trailing text. The "altBullet" version overrides the 
+	bullet type to provide an alternative if you want  filled circle (could be changed. "compact" versions use less padding on list 
+	elemetns. Recommend compact for concise lists and regular for lists where elements are large chunks of text (easier to read if they
+	are spaced out) */
+
+ul
+{
+  list-style-type: circle;
+  padding: 1px;
+  margin: 2px;
+  margin-left: 20;
+  margin-bottom: 18px;
+}
+
+li
+{
+  margin: 5px;
+  padding: 2px;
+  margin-top: 3px;
+  margin-bottom: 11px;
+}
+
+ol
+{
+  padding: 1px;
+  margin-left: 20px;
+  margin-bottom: 18px;
+}
+
+ul.compact
+{
+  margin-bottom: 15px;
+}
+
+ul.compact li
+{
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+ol.compact li
+{
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+ul.compactNoBottom li
+{
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+ul.compactNoBottom
+{
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+ol.compactNoBottom li
+{
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+
+/* Alternative bullet style (solid circles) */
+ul.altBullet
+{
+  list-style-type: bullet;
+  margin-bottom: 15px;
+}
+ul.altBulletCompact
+{
+  list-style-type: bullet;
+  padding-top: 0px;
+}
+ul.altBulletCompact li
+{
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+  
+/* ---------------------------- */ 
+ul.optionsList
+{
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-top:  0;
+  margin: 0;
+  padding: 0;
+}
+
+ul.optionsList li {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 0px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  }
+
+ul.optionsListInner
+{
+  list-style-type: circle;
+  padding: 0;
+  margin: 0; 
+  padding-left: 15;
+  margin-left: 15;
+}
+
+ul.optionsListInner li {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 10px;
+  }
+
+/* ---------------------------- */
+
+/* bulletsCircleNoMargin is being DEPRECATED - will either rename it (eg bulletsDefault) or just 
+   drop them in favour of using default ul/li. Set to same as the defaults so that they produce 
+   the same output. Ignore the implication of the name "NoMargin" as this is now incorrect. */
+
+ul.bulletsCircleNoMargin
+{
+  list-style-type: circle;
+  padding: 1px;
+  margin: 2px;
+  margin-left: 20;
+  margin-bottom: 18px;
+}
+  
+ul.bulletsCircleNoMargin li {
+  margin: 5px;
+  padding: 2px;
+  margin-top: 3px;
+  margin-bottom: 11px;
+  }
+
+/* ---------------------------- */
+ul.numberedlist
+{
+  list-style-type: decimal;
+  padding-left: 10;
+  margin-left: 15;
+  top: 0px;
+  left: 0px;
+}
+
+ul.numberedlist li {
+  margin: 0px;
+  padding: 5px;
+  }
+
+/* ---------------------------- */
+ul.tutorialNumbers {
+  list-style-type: decimal;
+  padding-left: 5;
+  margin-left: 15;
+  padding-top: 0px;
+  left: 0px;
+ }
+
+ul.tutorialNumbers li {
+  padding: 0px;
+  margin: 0px;
+  margin-top: 10px;
+  }
+
+/* ---------------------------- */
+ul.solidsquarebullets {
+  list-style-type: square;
+  padding-left: 0;
+  margin-left: 15;
+  top: 0px;
+  left: 0px;
+ }
+
+ul.solidsquarebullets li {
+  margin: 0px;
+  padding: 5px;
+  }
+
+/* ---------------------------- */
+.homepage ul.sectionlinks {
+  list-style-type: square;
+  padding-left: 10;
+  margin: 15;
+  top: 0px;
+  left: 0px;
+ }
+
+.homepage ul.sectionlinks li {
+  margin: 0px;
+  padding: 5px;
+  }
+/* ---------------------------- */
+ ul.pagelinks {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  padding-bottom: 5px;
+ }
+
+ ul.pagelinks li {
+  margin: 0px;
+  padding: 5px;
+  padding-bottom: 7px;
+  padding-left: 4px;
+ }
+  
+ ul.pagelinksCompact {
+  list-style-type: disc;
+  padding-left: 25px;
+  padding-top: 6px;
+  margin: 0;
+  top: 0px;
+  left: 0px;
+  padding-bottom: 5px;
+ }
+
+ ul.pagelinksCompact li {
+  margin: 0;
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  padding-left: 4px;
+ }
+ 
+ ul.pagelinksCompactNested {
+  list-style-type: disc;
+  padding-left: 25px;
+  padding-top: 0px;
+  margin: 0px;
+  top: 0px;
+  left: 0px;
+  padding-bottom: 0px;
+ }
+
+ ul.pagelinksCompactNested li {
+  margin: 0;
+  padding-top: 0px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+  padding-left: 4px;
+ }
+
+/*Image captions or explanation of numbered elements in images ---------*/
+
+ul.numberedlistsmall
+{
+    font-size: 80%;
+    font-style: normal;
+    color: #404040;
+    font-weight: Bold;
+
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 15;
+    padding-bottom: 10;
+    top: 0px;
+    left: 0px;
+}
+
+ul.numberedlistsmall li
+{
+    margin: 0px;
+    padding-bottom: 2px;
+}
+
+ul.microList
+{
+    list-style-type: circle;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+    margin-left: 15px;
+}
+
+ul.microList li
+{
+    padding: 0px;
+    padding-bottom: 2px;
+    border: 0px;
+    margin: 0px;
+}
+
+/* other stuff ---------------------------------------------------------*/	
+
+a:link {color: #333399;}
+a:visited {color: #6d7082;}
+a:active {color: red;}
+a:hover {color: red;}
+
+a {text-decoration: none;}
+
+
+.questiontext {
+	font-size: 100%;
+	font-style: normal;
+	padding-top: 20px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #404040;
+	font-weight: bold;
+}
+
+.codetext {
+	font-family: courier, serif;
+	font-size: 90%;
+	font-style: normal;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #404040;
+	font-weight: normal;
+	background-color: #eeeeee;
+}
+
+ul.codelist
+{
+  font-family: courier, serif;
+  font-size: 90%;
+  font-style: normal;
+  color: #404040;
+  font-weight: normal;
+  background-color: #eeeeee;  
+  
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;  
+  padding-left: 25px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  /*margin-top: 10px;*/
+  
+}
+
+ul.codelist li {
+  margin: 0px;
+  padding: 0px;
+}
+  
+
+.boldtext
+{
+	font-size: 100%;
+	font-style: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #404040;
+	font-weight: bold;
+}
+
+
+.italictext
+{
+	font-size: 100%;
+	font-style: italic;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #404040;
+	font-weight: normal;
+}
+
+div.trailingNote {
+	padding-top: 5px;
+	padding-bottom: 0px;
+}
+
+div.trailingImageLeft {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-right: 20px;
+	float: left;
+}
+
+div.trailingImageNonLeft {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+/* home page ---------------------------------------------------------*/	
+
+.tableclass
+{
+	padding: 0;
+	spacing:  0;
+	width: 280;
+	height: 177px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none;
+}
+
+.textcell
+{
+	font-family: Verdana, sans-serif;
+	width: 118px;
+
+	padding-left: 9;
+	padding-top: 8;
+	padding-right: 2;
+}
+
+.backgroundcell
+{
+	background-repeat: no-repeat;
+	
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none;
+}
+
+.imagecell
+{
+	width: 180px;
+
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border-width: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	border-style: none;
+}
+
+.boxtitle
+{
+	font-size: 100%;
+	font-style: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.boxtext
+{
+	font-size: 70%;
+	font-style: normal;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	color: #666666;
+	font-weight: 600;
+}
+
+img.screenshotsNoBorder {
+	padding 0;
+	margin: 0;
+}
+
+img.screenshotGreyBorder {
+  padding: 0;
+  margin: 0;
+  border: 2px solid #777777; 
+}
+
+img.screenshotsBlueBorder {
+  padding: 0;
+  margin: 0;
+  border: 2px solid #0000AA; 
+}
+
+img.screenshotGreyBorder3Sides {
+  padding: 0;
+  margin: 0;
+  padding-top: 5;
+  padding-bottom: 5;
+  margin-top: 5;
+  margin-bottom: 5;
+  border: 2px solid #777777; 
+  border-bottom: none;
+}
+
+img.screenshotsBlueBorder3Sides {
+  padding: 0;
+  margin: 0;
+  border: 2px solid #0000AA;
+  border-bottom: none;
+}
+
+img.bigpiccy {
+	padding-top: 0;
+	padding-right: 0;
+	padding-left: 0;
+	margin-top: 80;
+	margin-right: 10;
+	margin-left: 10;
+	float: right;
+}
+
+img.mainTitle{
+	padding 0;
+	margin: 0;
+	text-align: right;
+}
+
+.homepage
+{
+}
+
+
+.homepagelinks a:link {color: #666666;}
+.homepagelinks a:visited {color: #666666;}
+.homepagelinks a:active {color: #999999;}
+.homepagelinks a:hover {color: #999999;}
+
+.homepagelinks A {text-decoration: none;}
+
+/* DIVs and SPANs for highlighting chunks of text to seperate them from main content */
+
+span.windows-only {
+	background-color: #E9EFFF;
+	border-style: none;
+    padding: 4px;
+}
+
+span.mac-only {
+	background-color: #F4F4D8;
+	border-style: none;
+    padding: 4px;
+}
+
+div.windows-only {
+	background-color: #E9EFFF;
+	border-style: none;
+	padding: 8px 8px 8px 20px;
+	margin: 4px 4px 4px 20px;
+}
+
+div.mac-only {
+	background-color: #F4F4D8;
+	border-style: none;
+	padding: 8px 8px 8px 20px;
+	margin: 4px 4px 4px 20px;
+}
+
+div.windows-only-noindent {
+	background-color: #E9EFFF;
+	border-style: none;
+	padding: 8px 8px 8px 10px;
+	margin: 4px 6px 4px 6px;
+}
+
+div.mac-only-noindent {
+	background-color: #F4F4D8;
+	border-style: none;
+	padding: 8px 8px 8px 10px;
+	margin: 4px 6px 4px 6px;
+}
+
+div.windows-only-slim {
+	background-color: #E9EFFF;
+	border-style: none;
+	padding: 4px 4px 4px 10px;
+	margin: 2px 2px 2px 10px;
+	float: left;
+	clear: left;
+}
+
+div.mac-only-slim{
+	background-color: #F4F4D8;
+	border-style: none;
+	padding: 4px 4px 4px 10px;
+	margin: 2px 2px 2px 10px;
+	float: left;
+	clear: left;
+}
+
+.new-line {
+	clear: left;
+	padding-top: 6px;
+}
+
+div.new-line {
+	clear: left;
+	padding: 0px;
+	margin: 0px;
+}
+
+div.beta-warning {
+	background-color: #FFEEE0;
+	border-style: solid;
+	border-color: #AA0000;
+	border-width: 1px;
+	padding: 12px 10px 10px 20px;
+	margin: 4px 20px 4px 20px;
+}
+
+div.important-note {
+	background-color: #FFEEE0;
+	border-style: solid;
+	border-color: #AA6666;
+	border-width: 1px;
+	padding: 8px 6px 6px 14px;
+	margin: 8px 20px 4px 8px;
+}
+
+/* hr/dividing lines */
+
+hr.narrowDivider
+	{
+	margin-right: 80%;
+	}
+    
+hr.lightDivider
+{
+    color: #DDDDDD;
+    background-color: #DDDDDD;
+    border-style: none;
+    height: 1px
+}
+
+/* FIXME: have just copied the table and code sections from the original header. These need to be cut down to just do the things we want (i.e. example code formatting  and API ref fonction formatting)  */
+
+span.menuheading
+	{
+	color: #FFFFFF;
+	padding: 4px 4px 2px 4px;
+	margin-bottom: 0px;
+	border-style: solid;
+	border-width: 1px;
+	}
+
+p.menuheading
+	{
+	margin-top: 1.5em;
+	margin-bottom: 0px;
+	font-weight: bold;
+	}
+
+hr.menuseparator
+	{
+	height: 1px;
+	margin-top: 0.5em;
+	margin-right: 10px;
+	}
+
+table.menu
+	{
+	border-style: solid;
+	border-width: 1px;
+	margin-top: 2px;
+	margin-bottom: 1.5em;
+	}
+
+table.menu td
+	{
+	padding-left: 8px;
+	padding-right: 8px;
+	}
+
+div.memitem
+	{
+	padding-top: 20px;
+	}
+    
+div.memproto
+	{
+        border-top: 1px solid #dadada;
+        padding-top: 0px;
+    }
+
+div.memdoc
+	{
+	padding-left: 10px;
+    padding-top: 0px;
+    margin-top: 0px;
+	}
+
+table.memname
+	{
+	background-color: #dfdfdf;
+	}
+
+/* Tables */
+
+
+/* Browsers tend to shrink the cells to wrap after each word. These no-wrap settings force multi-word 
+     name (eg "S3E_API s3eReult s3eFunction")  and parameter descriptions (eg "const char *") to stay on the same line  */
+
+table.conventionKey {
+  padding: 5px;
+  padding-left: 10px;
+  margin-left: 30px;
+  margin-right: 25px;
+  margin-top: 10px;
+  margin-top: 10px;
+  border-style: solid;
+  border-width: 1px;
+  }
+
+table.conventionKey td, table.conventionKey th {
+  margin: 0px;
+  padding: 8px;
+  padding-right: 20px;
+  padding-left: 8px;
+  padding-bottom: 12px;
+  border-style: none;
+  vertical-align: top;
+  }
+  
+th.narrowFirstColumn {
+  width: 100px;
+}
+
+td.memname
+	{
+	white-space: nowrap;
+	}
+
+td.paramtype
+	{
+	white-space: nowrap;
+	}
+
+td.optionTableName
+	{
+	white-space: nowrap;
+	}
+
+th.optionTable
+{
+	text-align: center;
+}
+
+td.md
+{
+	background-color: #dfdfdf;
+	font-weight: bold;
+	cell-padding: 6
+}
+
+td.mdRow
+{
+	background-color: #dfdfdf;
+	font-weight: bold;
+	cell-padding: 6
+}
+
+td.mdname1
+{
+	background-color: #dfdfdf;
+	font-weight: bold;
+	cell-padding: 6
+}
+
+td.mdname
+{
+	background-color: #dfdfdf;
+	font-weight: bold;
+	cell-padding: 6
+}
+
+table.api
+{
+	border-style: solid;
+	border-width: 1px;
+}
+
+table
+{
+	font-size: 100%; /* Text in table is same size as text outside table */
+}
+
+table.mdTable
+{
+	width: 100%; /* Forces tables to have correct right margin */
+}
+
+th
+{
+	text-align: left;
+}
+
+table.pretty
+{
+	width: 100%; /* Forces tables to have correct right margin */
+	margin-top: .6em;
+	margin-bottom: .3em;
+	border-width: 1px 1px 0px 0px;
+	border-style: solid;
+	border-color: #D1801E; /* 75% */
+}
+
+table.pretty th, table.pretty td
+{ 
+	border-style: solid; /* Creates the cell border and color */
+	border-width: 0px 0px 1px 1px;
+	border-style: solid;
+	border-color: #D1801E; /* 75% */
+	padding: 4px 6px;
+	text-align: left;
+}
+
+table.pretty th
+{ 
+	background: #F5C592; /* 50% */
+	vertical-align: bottom;
+}
+
+table.pretty td
+{
+	vertical-align: top;
+}
+
+td.subtopic
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding: 4px 10px 4px 10px;
+	margin-right: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-left-width: 1px;
+	border-left-style: solid;
+	behavior: url(behaviors/hilite.htc);
+}
+
+table.sidebar
+{
+	border-style: solid;
+	border-width: 1px;
+	margin: 1em;
+	margin-left: 22px;
+	margin-right: 0px;
+	margin-bottom: 1.5em;
+	position: relative;
+	float: right;
+	right: 0px;
+	padding: 0px;
+}
+
+table.sidebar td
+{
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+table.sidebar th
+{
+	padding: 4px 8px 4px 8px;
+	color: #FFFFFF;
+}
+
+table.optionTable
+{
+	padding: 0px;
+	border-collapse: collapse;
+	border-color: #666666;
+}
+
+table.optionTable td, table.optionTable th
+{
+	border-width: 1px;
+	border-style: solid;
+	padding: 6px;
+}
+
+.optionTable
+{
+	border-width: 1px;
+	border-style: solid;
+	padding: 6px;
+}
+
+.optionTableName
+{
+	border-width: 1px;
+	border-style: solid;
+	padding: 4px;
+}
+
+
+/* Code */
+
+/* wrap blocks of code with this to create a solid background */
+div.fragment 
+{
+background-color: #eeeeee;
+padding: 4px 4px 4px 12px;
+}
+
+div.code
+{
+    background-color: #eeeeee;
+    padding: 4px 4px 4px 12px;
+    text-decoration: none;
+    font-weight: normal;
+    color: #000000;
+    white-space: nowrap;
+    white-space: pre;
+}
+
+code
+{
+    text-decoration: none;
+    font-weight: normal;
+    color: #000000;
+    white-space: nowrap;
+    white-space: pre;
+}
+
+pre, img.figure
+{
+    margin-top: .5em;
+    margin-bottom: .5em;
+}
+
+pre, code, kbd, div.code
+{
+    font-family: Courier New, Courier, Monospace;
+}
+
+pre.code
+{
+    behavior: url(behaviors/code.htc);
+}
+
+.hide
+{
+    display: none;
+}
+
+.comment
+{
+    color: #009900;
+}
+
+
+/*tabs that make the data fields page work properly - could do with some checking at some point*/
+
+DIV.tabs
+{
+   float            : left;
+   width            : 100%;
+   background       : url("tab_b.gif") repeat-x bottom;
+   margin-bottom    : 4px;
+}
+
+DIV.tabs UL
+{
+   margin           : 0px;
+   padding-left     : 10px;
+   list-style       : none;
+}
+
+DIV.tabs LI, DIV.tabs FORM
+{
+   display          : inline;
+   margin           : 0px;
+   padding          : 0px;
+}
+
+DIV.tabs FORM
+{
+   float            : right;
+}
+
+DIV.tabs A
+{
+   float            : left;
+}
+
+DIV.tabs A:hover
+{
+
+}
+
+DIV.tabs A:link, DIV.tabs A:visited,
+DIV.tabs A:active, DIV.tabs A:hover
+{
+}
+
+DIV.tabs SPAN
+{
+   float            : left;
+   display          : block;
+   padding          : 5px 9px;
+   white-space      : nowrap;
+}
+
+DIV.tabs INPUT
+{
+   float            : right;
+   display          : inline;
+   font-size        : 1em;
+}
+
+DIV.tabs TD
+{
+   font-size        : x-small;
+   font-weight      : bold;
+   text-decoration  : none;
+}
+
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+DIV.tabs SPAN {float : none;}
+/* End IE5-Mac hack */
+
+DIV.tabs A:hover SPAN
+{
+   background-position: 0% -150px;
+}
+
+DIV.tabs LI.current A
+{
+   background-position: 100% -150px;
+   border-width     : 0px;
+}
+
+DIV.tabs LI.current SPAN
+{
+   background-position: 0% -150px;
+   padding-bottom   : 6px;
+}
+
+DIV.nav
+{
+   background       : none;
+   border           : none;
+   border-bottom    : 1px solid #84B0C7;
+}
+
+/* end of code for data fields page */
+
+/* front page section formatting */
+
+/* use to center title and image
+div.frontPage
+{
+    position: relative;
+    left: 50%;
+    margin-left: -300px;
+    width: 600px;
+}*/
+div.frontPage
+{
+    margin-left: 20px;
+}
+
+div.frontPageImage
+{
+    width: 210px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+div.frontPageImageOlleh
+{
+    width: 300px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+div.frontPageTitle
+{
+    padding: 8px;
+    padding-top: 38px;
+}
+
+.gettingStarted
+{
+    background-color: #eaeaff;
+}
+.gettingStarted *
+{
+    background: #eaeaff;
+}
+
+.appDevelopers
+{
+    background-color: #fcead2;
+}
+.appDevelopers *
+{
+    background: #fcead2;
+}
+
+.gameDevelopers
+{
+    background-color: #e9e9e9;
+}
+.gameDevelopers *
+{
+    background: #e9e9e9;
+}
+
+.frontSection
+{
+    float: left;
+    display: inline-block;
+    margin: 4px;
+    width: 270px;
+    height: 105px;
+    padding: 0px;
+}
+
+.frontExtraHeight
+{
+    height: auto;
+}
+
+/* get rounded corners in CHM (legacy IE) using strips */
+.rtop, .rbottom{display:block; background: #FFF}
+.rtop *, .rbottom *{display: block; height: 1px; overflow: hidden}
+.r1{margin: 0 5px}
+.r2{margin: 0 3px}
+.r3{margin: 0 2px}
+.r4{margin: 0 1px; height: 2px}
+
+.frontSectionTitle
+{
+    font-size: 120%;
+    font-style: normal;
+    color: #555599;
+    font-weight: bold;
+    margin: 0px;
+    padding: 10px;
+    padding-top: 4px;
+    padding-bottom: 0px;
+}
+
+.frontSectionContent
+{
+    margin: 0px;
+    padding: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.frontSectionWrap
+{
+    float:left;
+    /*width:100%;*/
+    /*background-color: #f0f0ff;*/
+    /*border-radius: 5px;*/
+    margin-left: 6px;
+    margin-right: 6px;
+    padding-right: 6px;
+    margin-right: -28px; /* negate all right-padding (body, self) to fit as many boxes on screen as possible */
+    margin-top: 6px;
+    margin-bottom: 14px;
+}
+
+/* platform-specific callouts (for divs, spans etc). Use class="callout android" etc */
+
+/* note, work's around IE6 box model using !important hack.
+   in old IE versions (inc CHM browser) content area+padding+border=width;
+   in css standard content area=width, paddig and border are additional on
+   outside of width. Same for height.
+   http://en.wikipedia.org/wiki/Internet_Explorer_box_model_bug*/
+
+.callout
+{
+    float: left;
+    text-align: center;
+    padding: 4px;
+    padding-right: 0px;
+    width: 100px !important;
+    width /**/:104px;
+    border: 0px;
+    margin: 2px;
+    margin-right: 0px;
+}
+
+/* TODO: may not set height==0 on IE6/chm so may want to hack this... */
+
+.break
+{
+    clear: both;
+}
+
+.wide
+{
+    width: 100%;
+    height: 0px;
+}
+
+.padContainer
+{
+    margin-bottom: 10px;
+}
+
+.padMinimal
+{
+    margin-bottom: 4px;
+}
+
+.calloutCaveat
+{
+    padding: 8px;
+    border: 0px;
+    margin: 0px;
+    padding-top: 6px;
+    margin-left: 112px;
+}
+
+.calloutGenericCaveat
+{
+    padding: 4px;
+    padding-left: 0px;
+    border: 0px;
+    margin: 2px;
+    padding-top: 6px;
+}
+
+.android
+{
+    color: black;
+    background-color: #a3c535;
+}
+
+.bada
+{
+    color: white;
+    background-color: #004d8b;
+}
+
+.brew
+{
+    color: white;
+    background-color: #0a82de;
+}
+
+.playbook
+{
+    color: white;
+    background-color: black;
+}
+
+.ios
+{
+    color: black;
+    background-color: #bbbbbb;
+}
+
+.lgtv
+{
+    color: white;
+    background-color: #bf0050;
+}
+
+.meego
+{
+    color: white;
+    background-color: #562a7a;
+}
+
+.maemo
+{
+    color: black;
+    background-color: #ffff00;
+}
+
+.symbian
+{
+    color: black;
+    background-color: #fdc72f;
+}
+
+.webos
+{
+    color: black;
+    background-color: #fa7814;
+}
+
+.winmobile
+{
+    color: white;
+    background-color: #2b8f58;
+}
+
+.windows
+{
+    color: black;
+    background-color: #e9efff;
+}
+
+.mac
+{
+    color: black;
+    background-color: #f4f4d8;
+}
+
+.supported
+{
+    color: #33aa33;
+    padding: 2px;
+    width: 100px !important;
+    width /**/:104px;
+    float: left;
+    text-align: left;
+    border: 0px;
+    margin: 2px;
+}
+
+.notSupported
+{
+    color: #aa3333;
+    padding: 2px;
+    width: 100px !important;
+    width /**/:104px;
+    float: left;
+    text-align: left;
+    border: 0px;
+    margin: 2px;
+}
+
+.supportedHeading
+{
+    font-weight: bold;
+    padding: 2px;
+    padding-right: 0px;
+    width: 100px !important;
+    width /**/:102px;
+    float: left;
+    text-align: left;
+    border: 0px;
+    margin: 2px;
+    margin-right: 0px;
+}
+
+.supportCaveat
+{
+    padding: 8px;
+    border: 0px;
+    margin: 0px;
+    padding-top: 4px;
+    margin-left: 100px;
+}
+
+/* standard brand colours for backgrounds, based on brand guidelines, working around its odd naming scheme... */
+
+.brandPimary1
+{
+    color: white;
+    background-color: #333399;
+}
+
+.brandPrimary2
+{
+    color: white;
+    background-color: #0099cc;
+}
+
+.brandSecondary1
+{
+    color: white;
+    background-color: #000000;
+}
+
+.brandSecondary2
+{
+    color: black;
+    background-color: #cccccc;
+}
+
+.brandSecondary3
+{
+    color: black;
+    background-color: #999999;
+}
+
+.brandSecondary4
+{
+    color: black;
+    background-color: #666666;
+}
+
+.brandSecondary5
+{
+    color: black;
+    background-color: #ffffff;
+}
+
+.brandBlueSecondary2
+{
+    color: white;
+    background-color: #4DBDE5;
+}
+
+.brandBlueSecondary3
+{
+    color: black;
+    background-color: #8DD2F2;
+}
+
+.brandOrangeSecondary2
+{
+    color: white;
+    background-color: #E5701F;
+}
+
+.brandOrangeSecondary2b
+{
+    color: black;
+    background-color: #F8B053;
+}
+
+.brandOrangeSecondary3
+{
+    color: #555555;
+    background-color: #FCD092;
+}
+
+
+/* triangle arrows using brandOrangeSecondary2b. use these in enpty div/spans */
+
+.floatLeft
+{
+    float: left;
+}
+
+.arrowRight
+{
+    border-color: transparent transparent transparent #F8B053;
+    border-style: solid;
+    border-width: 20px;
+    margin-right: -20px;
+    width:0px;
+    height:0px;
+    /* hack as IE6 doesnt support zero (or very small) height divs! */
+    font-size: 1px;
+    height: 3px;
+    margin-top: -3px;
+}
+
+.arrowLeft
+{
+    border-color: transparent #F8B053 transparent transparent;
+    border-style: solid;
+    border-width: 20px;
+    margin-left: -20px;
+    width:0px;
+    height:0px;
+    font-size: 1px;
+    height: 3px;
+    margin-top: -3px;
+}
+
+/* IE6 fix (pink could be any value) */
+.arrowRight
+{
+    _border-top-color: pink;
+    _border-bottom-color: pink;
+    _border-right-color: pink;
+    _filter: chroma(color=pink);
+}
+
+.arrowLeft
+{
+    _border-top-color: pink;
+    _border-bottom-color: pink;
+    _border-left-color: pink;
+    _filter: chroma(color=pink);
+}
+
+/* tables for splashscreen info */
+
+.splashColumn
+{
+    width: 120px;
+    height: 150px;
+    float: left;
+    padding: 0px;
+    border: 0px;
+    margin: 10px;
+}
+
+.splashColumnHeading
+{
+    text-align: center;
+    font-weight: bold;
+    padding: 6px;
+    height: 30px !important;
+    height /**/:42px;
+}
+
+.splashColumnCell
+{
+    padding: 6px;
+}
+
+.splashColumnArrow
+{
+    margin-top: 11px;
+    margin-bottom: 119px;
+}
+
+.splashColumnFull
+{
+    width: 185px;
+    float: left;
+    padding: 0px;
+    border: 0px;
+    margin: 10px;
+}
+
+.splashColumnLicenses
+{
+    width: 100px;
+    float: left;
+    padding: 0px;
+    border: 0px;
+    margin: 10px;
+}
+
+.splashColumnLicense
+{
+    height: 34px;
+    text-align: center;
+    font-weight: bold;
+    margin: 6px -5px 6px -5px;
+    padding: 22px 10px 4px 10px;
+    height: 34px !important;
+    height /**/:60px;
+}
+
+.splashColumnFullOne
+{
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 48px !important;
+    height /**/:60px;
+}
+
+.splashColumnFullTwo
+{
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 114px !important;
+    height /**/:126px;
+}
+
+.splashColumnFullAll
+{
+    margin-top: 6px;
+    margin-bottom: 6px;
+    height: 246px !important;
+    height /**/:258px;
+}
+
+.splashColumnFullArrow
+{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+/* contents page stuff for whitepapers ---------------- */
+
+ul.contentslist
+{
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+  padding-bottom: 0;
+  padding-top:  0;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+
+ul.contentslist li {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 0px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  }
+
+
+ul.numberslist
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+ul.numberslist li {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 5px;
+text-align: right;
+  }
+
+.contentspage
+{
+clear:both;
+padding-bottom:0;
+width: 630px;
+overflow:hidden;
+margin-left: 20px;
+}
+
+.contentstitles
+{
+width:450px;
+float:left;
+text-align: left;
+}
+
+.contentsnumbers
+{
+width:30px;
+float:right;
+text-align: center;
+background-color: #ffffff;
+}
+
+/* end of stuff for contents pages for whitepapers --------------- */
+
+.arcade-only
+{
+    display: none;
+}
+
+.nds-only
+{
+    display: none;
+}
+
+.psp-only
+{
+    display: none;
+}
+
+.olleh-only
+{
+    display: none;
+}
+
+.nomacsdk-only
+{
+    display: none;
+}
+
+.lgtv-only
+{
+    display: none;
+}
+
+.altenglish-only
+{
+    display: none;
+}

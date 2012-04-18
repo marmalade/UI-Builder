@@ -1,0 +1,50 @@
+includepaths
+{
+	Base
+	Layout
+	../AirplayStudioDirector
+	../AirplayStudioDirector/IwStyleSheet	
+}
+
+includepath "$MARMALADE_ROOT\s3e\h" #s3einclude
+
+files
+{
+	[Base]
+	(Base)
+	IwASDBase.h
+	IwModule.cpp
+	IwModule.h
+	IwASDApp.cpp
+	IwASDApp.h
+	IwASDData.cpp
+	IwASDData.h
+	IwASDDataFilter.cpp
+	IwASDAction.cpp
+	IwASDAction.h
+	FastDelegate.h
+	IwHtmlInfo.cpp
+	toggle.h
+	toggle.cpp
+
+	[Layout]
+	(Layout)
+	IwLayoutFrame.cpp
+	IwLayoutFrame.h
+	IwLayoutFrameModule.cpp
+	IwLayoutFrameModule.h
+	IwLayoutPanel.cpp
+	IwLayoutPanel.h
+	IwLayoutToolBar.cpp
+	IwLayoutToolbar.h
+
+	[Docs]
+	(docs)
+	ASD2_0.defines.txt
+
+	[Resources]
+	(../AirplayStudioDirector/IwStyleSheet)
+	iwStyleSheet.rc
+	IwStyleSheet.h
+	IwStyleSheet.cpp
+}

@@ -1,0 +1,44 @@
+ASD2.0 Framework is split into 3:
+1)   Base      which has the basic framework and the Frame module that handles the layout of the app
+2)   Files     which has the File module which is under development
+3)   your own modules
+
+To create your own App:
+1)   create your own sub directory (or create elsewhere)
+2)   copy the contents of ASExample to your directory
+3)   Rename the mkf/mkbs from ASExample to your name
+4)   adjust subproject name in the mkbs
+5)   run the debug mkb
+   note: this mkb should always be built in debug, the other mkb should always be built in release
+6)   in settings/debug set the working directory to this directory
+7)	 build and run
+
+The basic philosophy is that there is a set of data files (like menu.ast and VLayoutShared.svl) in the data directory that describe the
+layout/menus/toolbars etc. Some of the strings in these files (i.e. the menu actions and the element types) are defined by modules that
+plug in to the application. If you examine modules\IwTestMod you will find:
+	a #define that defines the number of your module, this number should be unique. The Frame module is number 0, the Files module is
+	  number 1 and modules specific to an application should start at 128.
+	a function RegisterModules, this is called by the main app for you to register your modules with the app
+	a module called CIwTestModule, this registers one action with the app
+
+Base:
+Base is defined in ASD2_0Base.mkf and is split into:
+   Base       which is the basic framework and
+   Layout     which contains the Frame Module which deals with the main window
+the basic framework consists of:
+   CIwASDApp  this is the main application class and also handles module registration and creation of tags, elements and data objects
+   CIwModule  this is a base class for modules. A module is the interface to your code from the application Modules have a unique
+              number (ie #define TEST_MODULE_ID 16) within the application. modules create tags (ie mappings from test to numbers),
+              actions (menu/toolbar items), Elements (panes in the layout) and data objects.
+   CIwLayoutElement   this holds your sub-window in the layout and deals with creation/loading/saving/Re-layout and drag and drop.
+   CIwASDData is a generic base class for data items this interacts with CIwLayoutData which is derived from CIwLayoutElement to provide
+              as a base for elements that display an item of data.
+The Frame Module contains:
+   CIwFrameModule:   the module for the main window and some basic elements
+   CIwLayoutFrame   the main window
+   CIwLayoutElementLog   "log"  a log window (tied into widgets log system)
+   CIwLayoutElementToolbar   "toolbar"  a toolbar defined in a text file
+   CIwLayoutElementNotebook\CIwLayoutNotebook "notebook"   a multi tab control, each page is a sub element
+   CIwLayoutElementSash\CIwLayoutSash "sash" a side window that is an adjustable distance from the edge
+   CIwLayoutElementSizer "horizontal"\"vertical" contains multiple windows arranged horivontally or vertically in fixed sizes
+

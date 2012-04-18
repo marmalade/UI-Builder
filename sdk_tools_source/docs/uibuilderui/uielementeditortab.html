@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+	<link href="../style/stylesheet.css" rel="stylesheet" type="text/css">
+	<title>UI Builder: Element Editor Tab</title>
+</head>
+<body>
+	<div id="header">
+		<h6>
+			<a href = "../../uibuilder.html">Marmalade Studio UI Builder</a> &gt;
+			<a href = "../uibuilderui.html">User Interface</a> &gt;
+			<a href = "uielementeditortab.html">Element Editor Tab</a> &gt;
+		</h6>
+		<hr id="topBar" />
+	</div>
+
+	<h2>Element Editor Tab</h2>
+<!-- end header -->
+
+
+<p>
+    This is the main editor for elements. On the left side is a tree view of all elements, on the right is a list of properties on the currently selected element.<br>
+    <br>
+    Left clicking on an element in the tree view selects that element as the current element. Right clicking brings up a menu with 'remove' in it, this removes the current element from its parent and from its parents layout. Elements can be dragged into new positions in the tree. To make an element the child of another drop it onto the element, to insert it between two elements drop it into the gap between to them. To create a copy of an element hold &lt;ctrl&gt; when copying. To add a different kind of element, drag an element from the Palette.<br>
+    <br>
+    The properties of the elements differ depending of the type of the element. See the documentation for details of individual properties. A couple of important properties are:<br>
+    <h4>
+      name
+    </h4>
+    This identifies the element, this needs to be unique compared to the sibling elements, preferably completely unique.<br>
+    <h4>
+      style
+    </h4>
+    This points to a property set specifying default values of this elements parameters. There is a Go To button next to the property, this takes you to the Property Set in the style editor If a parameter is specified in the property set pointed to by style, or one of its parents, then it it treated specially. If the property has been set in this element then there is a Reset button next to it, clicking this resets the value to its parent value. If the property has not been set in this element then the property is grayed out, to edit the value click on the override button next to the property.<br>
+    <br>
+    Editing most property types is self explanatory, a few warrant some explanation.<br>
+    The colour type has four fields which are red, green, blue and alpha. the button brings up a colour picker and is the colour specified by the fields.<br>
+    Ptr types for things like textures and fonts have an editable text field with the name of the item pointed to and a change button. The change button brings up a list of possible values and '-= new =-' which asks which group file to add the item to, then asks for the location of the file to add. This file is added into the group and the property is set to its name.<br>
+    Ptr types for things like property sets and materials are like the other pointer types except the '-= new =-' procedure is different. This asks which file to add the item to or should it be added to the current style, then asks for a name for the new item. There is also an extra option '-= inline =-' in the list, this adds a property set (or material) into the element inline.<br>
+    <br>
+</p>
+
+
+<p class = "inpageHeadings">Element Editor Toolbar</p>
+
+<img class= "screenshots" src="images/uitoolelementeditorbuttons.jpg" alt="UI Editor - Element Editor Toolbar" >
+
+<ul class = "optionsList">
+	<li><span class = "boldtext"> Save - </span>
+		Saves the currently open UI file</li>
+	<li><span class = "boldtext"> Reload - </span>
+		Abandons changes and reloads the currently open UI file</li>
+	<li><span class = "boldtext"> Refresh... - </span>
+		Resends the data on the currently selected item to the Viewer </li>
+	<li><span class = "boldtext"> Live Update... - </span>
+		If ticked, this sends all changes made in the Element Editor to the Viewer continuously</li>
+</ul>
+
+
+<!-- begin footer -->
+	<div id="footer">
+		<hr>
+		<address>
+			<small>
+			(c)&nbsp;2012 <a target="_blank" href="http://www.madewithmarmalade.com/">Marmalade</a>. All rights reserved.
+			</small>
+		</address>
+	</div>
+</body>
+</html>

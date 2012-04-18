@@ -1,0 +1,4 @@
+#IwViewer defines
+MULTI_WINDOW_VIEWER		multi window version of viewer
+ASD_AS_DLL				app is a dll
+IW_VIEWER_TCP_COMMS		use tcp comms
