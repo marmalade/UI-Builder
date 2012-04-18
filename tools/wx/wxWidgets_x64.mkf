@@ -1,0 +1,75 @@
+subproject wxWidgets_base
+
+if {{ defined I3D_OS_LINUX }}
+{
+    defines
+    {
+        __WXGTK__
+        __WXGTK20__
+        wxSIZE_T_IS_UINT
+        GTK_NO_CHECK_CASTS
+        _FILE_OFFSET_BITS=64
+        _LARGE_FILES
+        _LARGEFILE_SOURCE=1
+        NO_GCC_PRAGMA
+        HAVE_STRCASECMP_IN_STRING_H
+    }
+    librarys
+    {
+        wx_gtk2u_richtext-2.8
+        wx_gtk2u_aui-2.8
+        wx_gtk2u_xrc-2.8
+        wx_gtk2u_qa-2.8
+        wx_gtk2u_html-2.8
+        wx_gtk2u_adv-2.8
+        wx_gtk2u_core-2.8
+        wx_baseu_xml-2.8
+        wx_baseu_net-2.8
+        wx_baseu-2.8
+    }
+}
+else if {{ defined I3D_OS_OSX }}
+{
+    defines
+    {
+        __WXMAC__
+        WXUSINGDLL
+        _FILE_OFFSET_BITS=64
+        _LARGE_FILES
+        _LARGEFILE_SOURCE=1
+        NO_GCC_PRAGMA
+        HAVE_STRCASECMP_IN_STRING_H
+    }
+    librarys
+    {
+        wx_macu_richtext-2.8
+        wx_macu_aui-2.8
+        wx_macu_xrc-2.8
+        wx_macu_qa-2.8
+        wx_macu_html-2.8
+        wx_macu_adv-2.8
+        wx_macu_core-2.8
+        wx_base_carbonu_xml-2.8
+        wx_base_carbonu_net-2.8
+        wx_base_carbonu-2.8
+        wx_macu_stc-2.8
+    }
+}
+else
+{
+    librarypath "$WX_ROOT/lib/vc_x64"
+    librarys
+    {
+        wxexpat.lib
+        wxbase28u.lib
+        wxmsw28u_adv.lib
+        wxmsw28u_core.lib
+        wxtiff.lib
+        wxpng.lib
+        wxjpeg.lib
+        wxzlib.lib
+        wxmsw28u_stc.lib
+        wxmsw28u_html.lib
+        wxmsw28u_richtext.lib
+    }
+}

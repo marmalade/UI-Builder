@@ -1,0 +1,25 @@
+subproject wxWidgets_base
+
+debug_defines
+{
+    _DEBUG
+}
+
+if {{ defined I3D_OS_WINDOWS }}
+{
+    librarypath "$WX_ROOT/lib/vc_lib"
+    librarys
+    {
+        wxexpatd.lib
+        wxbase28ud.lib
+        wxmsw28ud_adv.lib
+        wxmsw28ud_core.lib
+        wxtiffd.lib
+        wxpngd.lib
+        wxjpegd.lib
+        wxzlibd.lib
+        wxmsw28ud_stc.lib
+        wxmsw28ud_html.lib
+        wxmsw28ud_richtext.lib
+    }
+}

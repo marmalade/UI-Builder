@@ -1,0 +1,20 @@
+//startsize 800 800
+startsize maximize
+
+sash _
+	notebook 0
+		uiviewer "Viewer"
+		uied_source "Source View"
+	toolbar T42 "{viewer}Options.ast"
+	log B75 "Log Window" "C:\\temp\\data\\uied.log"
+	sash L170
+		notebook 0 palette
+			uied_palette "Elements" elements
+			uied_palette "Others" others
+			uied_media "Media"
+		notebook T250 project
+			uied_project "Files"
+	notebook R520 attrviewer active
+		uied_united "UI Editor"
+		uied_styleed "Property Set Editor"
+		uied_materialed "Materials Editor"

@@ -1,0 +1,128 @@
+includepath utils
+
+options
+{
+    treat-wchar_t-as-typedef
+    strict-mkb
+}
+
+debug_defines
+{
+    # uncommenting this out otherwise the debug build won't work with the release libs
+    # specified below
+    #_DEBUG
+}
+
+if {{ defined I3D_OS_LINUX }}
+{
+    if {{ option amd64 }}
+    {
+        includepath /usr/lib/x86_64-linux-gnu/wx/include/gtk2-unicode-release-2.8/
+
+        # for older linux system
+        includepath /usr/lib/wx/include/gtk2-unicode-release-2.8/
+    }
+    else
+    {
+        includepath /usr/lib/wx/include/gtk2-unicode-release-2.8
+        define wxSIZE_T_IS_UINT
+    }
+
+    defines
+    {
+        __WXGTK__
+        __WXGTK20__
+        GTK_NO_CHECK_CASTS
+        _FILE_OFFSET_BITS=64
+        _LARGE_FILES
+        _LARGEFILE_SOURCE=1
+        NO_GCC_PRAGMA
+        HAVE_STRCASECMP_IN_STRING_H
+    }
+
+    option enable-stdinc
+
+    includepath /usr/include/wx-2.8
+}
+else if {{ defined I3D_OS_OSX }}
+{
+    upstream
+    {
+        url="./wx-mac.tar.bz2"
+        destshared=1
+        destenv=WX_ROOT
+    }
+
+    includepaths
+    {
+        "$WX_ROOT/include"
+        "$WX_ROOT/mac-unicode-release-2.8"
+    }
+
+    defines
+    {
+        __WXMAC__
+        WXUSINGDLL
+        _FILE_OFFSET_BITS=64
+        _LARGE_FILES
+        _LARGEFILE_SOURCE=1
+        NO_GCC_PRAGMA
+        HAVE_STRCASECMP_IN_STRING_H
+    }
+
+    option enable-stdinc
+
+    librarypath ../../tools/wx/lib/
+}
+else if {{ defined I3D_OS_WINDOWS }}
+{
+    defines
+    {
+        _MBCS
+        WIN32
+        _WINDOWS
+        wxUSE_UNICODE=1
+    }
+
+    upstream
+    {
+        url="./wx-win32.tar.bz2"
+        destshared=1
+        destenv=WX_ROOT
+    }
+
+    includepath "$WX_ROOT/include"
+
+    if {{ defined _DEBUG }}
+    {
+        undef NDEBUG
+        includepath "$WX_ROOT/lib/vc_lib/mswud"
+    }
+    else
+    {
+        includepath "$WX_ROOT/lib/vc_lib/mswu"
+    }
+
+    librarys
+    {
+        user32.lib
+        kernel32.lib
+        gdi32.lib
+        comdlg32.lib
+        comctl32.lib
+        advapi32.lib
+        shell32.lib
+        ole32.lib
+        oleaut32.lib
+        rpcrt4.lib
+    }
+}
+
+files
+{
+    wx.defines.txt
+    [Utils]
+    (utils)
+    wxInclude.h
+    Utils.cpp
+}

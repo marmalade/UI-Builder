@@ -1,0 +1,304 @@
+CIwUIElement
+{
+	name ExpMetaPalette/Controls
+
+	CIwUIElement
+	{
+		name Element
+		size { 50 50 }
+	}
+	CIwUIImage
+	{
+		name "Image"
+		texture Image
+		sizeToContent true
+	}
+	CIwUIButton
+	{
+		name "Button"
+		style <button>
+		caption "Button"
+	}
+	CIwUITabBar
+	{
+		name "TabBar"
+		sizeToContent true
+		radioButtonStyles {
+			{ caption "left" style <radio_left> } 
+			{ caption "centre" style <radio_centre> } 
+			{ caption "right"  style <radio_right> } 
+		}
+	}
+	CIwUICheckBox
+	{
+		name "CheckBox"
+		style <checkbox>
+		caption "CheckBox"
+	}
+	CIwUILabel
+	{
+		name "Label"
+		style <label_medium>
+		caption "Label"	
+	}
+	CIwUITextField
+	{
+		name	"TextField"
+		style	<textField>
+		caption	"Text Field"
+		size { 50 37 }
+	}
+	CIwUIProgressBar
+	{
+		name "Progress"
+		style <progressBar>
+		sizeHint { 70 32 }
+	}
+	CIwUISlider
+	{
+		name "Slider"
+		style <slider>
+		sizeHint { 70 37 }
+	}
+
+}
+CIwUIElement
+{
+	name ExpMetaPalette/LayoutsInElements
+
+
+	CIwUIElement
+	{
+		name			Layered
+		
+		CIwUILayout
+		{
+			name			Layered
+		}
+	}
+	CIwUIElement
+	{
+		name			Vertical
+		
+		CIwUILayoutVertical
+		{
+			name			Vertical
+		}
+	}
+	CIwUIElement
+	{
+		name			Horizontal
+		
+		CIwUILayoutHorizontal
+		{
+			name			Horizontal
+		}
+	}
+	CIwUIElement
+	{
+		name			Grid
+		
+		CIwUILayoutGrid
+		{
+			name			Grid
+			numColumns 2
+			numRows 2
+		}
+	}
+	CIwUIScrollableView
+	{
+		name			ScrollableVertical
+		
+		clipped true
+		updatable true
+
+		CIwUIFocusHandlerTab
+		{
+			name "Focus"
+		}
+		
+		CIwUILayoutVertical
+		{
+		}
+	}
+
+	CIwUIElement
+	{
+		name Form
+		
+		CIwUILayoutForm
+		{
+			name Form
+			
+			formSize { 1000 1000 }
+		}
+	}
+}
+
+CIwUIElement
+{
+	name ExpMetaPalette/Dialogs
+	CIwUIAlertDialog
+	{
+		name "AlertDialog"
+		sizeToContent true
+		margin { 16 16 }
+		
+		background { drawableType border border { 16, 16 } texture dialog }
+		labelStyle { caption "AlertDialog" parent "<label_medium>" }
+		buttonStyles {
+			{ caption "Ok" parent "<button>" }
+			{ caption "Cancel" parent "<button>" }
+		}
+	}
+}
+CIwUIElement
+{
+	name ExpMetaPalette/Snippets
+	CIwUIImage
+	{
+		name "Background"
+		texture Background
+	}
+}
+CIwUIElement
+{
+	name ExpMetaPalette:l/ChangeElementsLayout
+
+	CIwUIElement
+	{
+		name			NoLayout
+	}
+
+	CIwUIElement
+	{
+		name			Layered
+		sizeToContent true
+		
+		CIwUILayout
+		{
+			name			Layered
+		}
+	}
+	CIwUIElement
+	{
+		name			Vertical
+		sizeToContent true
+		
+		CIwUILayoutVertical
+		{
+			name			Vertical
+		}
+	}
+	CIwUIElement
+	{
+		name			Horizontal
+		sizeToContent true
+		
+		CIwUILayoutHorizontal
+		{
+			name			Horizontal
+		}
+	}
+	CIwUIElement
+	{
+		name			Grid
+		sizeToContent true
+		
+		CIwUILayoutGrid
+		{
+			name			Grid
+			numColumns 2
+			numRows 2
+		}
+	}
+	CIwUIElement
+	{
+		name				Form
+		
+		CIwUILayoutForm
+		{
+			name Form
+			formSize { 1000 1000 }
+		}
+	}
+}
+CIwUIElement
+{
+	name ExpMetaPalette:f/ChangeElementsFocus
+
+	CIwUIElement
+	{
+		name			NoFocus
+	}
+	CIwUIElement
+	{
+		name			FocusHandler2D
+		
+		CIwUIFocusHandler2D
+		{
+			name	FocusHandler2D
+		}
+	}
+	CIwUIElement
+	{
+		name			FocusHandlerTab
+		
+		CIwUIFocusHandlerTab
+		{
+			name	FocusHandlerTab
+		}
+	}
+}
+CIwUIElement
+{
+	name ExpMetaPalette:s/AddSpacer
+
+	CIwUIElement
+	{
+		name			Spacer
+		
+		CIwUILayout
+		{
+			element {
+				name			Spacer
+				CIwUILayoutSpacer {
+					name "Spacer"
+					sizeMin  { 30 30 }
+					sizeMax  { 30 30 }
+					sizeHint  { 30 30 }
+				}
+			}
+		}
+	}
+}
+
+CIwUIElement
+{
+	name ExpMetaPalette:p/SizerPolicy
+
+	CIwUIElement
+	{
+		name "SizeToContent"
+		sizeMin  { -1 -1 }
+		sizeMax  { -1 -1 }
+		sizeHint  { -1 -1 }
+		sizeToContent true
+	}
+	CIwUIElement
+	{
+		name "ProportionalSize"
+		sizeMin  { 16 16 }
+		sizeMax  { -1 -1 }
+		sizeHint  { 500 500 }
+		sizeToContent false
+	}
+	CIwUIElement
+	{
+		name "FixedSize"
+		sizeMin  { 16 16 }
+		sizeMax  { 16 16 }
+		sizeHint  { 16 16 }
+		sizeToContent false
+	}
+}

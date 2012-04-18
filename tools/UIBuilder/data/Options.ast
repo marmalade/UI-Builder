@@ -1,0 +1,9 @@
+section "File"
+
+icon "New Project..." uied_pnew Icons\32x32\newproject32x32.png
+icon "Load Project..." uied_pload Icons\32x32\loadproject32x32.png
+icon "Save Project" uied_psave Icons\32x32\saveproject32x32.png
+icon "New UI file..." uied_new Icons\32x32\newui32x32.png
+icon "Save UI file" uied_save Icons\32x32\saveui32x32.png
+toggle "Auto Start Viewer On/Off" uied_autoviewer Icons\32x32\viewer_auto_off32x32.png Icons\32x32\viewer_auto_on32x32.png
+icon "Reset Viewer" uied_start Icons\32x32\viewer_off32x32.png

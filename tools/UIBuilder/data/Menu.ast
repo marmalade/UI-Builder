@@ -1,0 +1,48 @@
+section main
+menu "&File"
+	item "&New Project..." uied_pnew
+	item "&Make Project From Group..." uied_pgroup
+	item "&Load Project..." uied_pload
+	item "&Save Project" uied_psave
+	separator
+	item "New UI..." uied_new
+	item "Save UI" uied_save
+	separator
+	item "E&xit" frame_exit
+menu "&Viewer"
+	item "Restart &Viewer" uied_start
+	separator
+	inlist "&Orientation" uied_orient "&Portrait" "&Landscape"
+	separator
+	inlist "HW/SW &Mode" uied_hwswmode "&Hardware only" "&Software only" "&Dynamic HW/SW" "S&canline Renderer (SW)" "&Z-Buffer Renderer (SW)" "GLES &2.x (HW)"
+	separator
+	check "176 x 203 Brew" uied_view 176 203
+	check "240 x 320 QVGA" uied_view 240 320
+	check "352 x 416 N-Series" uied_view 352 416
+	check "480 x 320 IPhone" uied_view 480 320
+	check "1024 x 768 IPad" uied_view 1024 768
+	check "&Custom Size..." uied_view custom
+menu "&Edit"
+	item "&Remove Selected" uied_remove
+	item "&Group Selected..." uied_group
+	item "Set &Layout..." uied_layout
+	item "Set a &Sizer Policy..." uied_sizerpolicy
+menu "&Preferences"
+	check "Auto Start Viewer" uied_autoviewer
+	check "Show Assert Box" uied_assertbox
+	check "Outline Hierarchy" uied_outlinehierarchy
+	check "Outline Siblings" uied_outlinesiblings
+	check "Outline Margins" uied_outlinemargins
+	item "&Localisation File..." uied_localisation
+menu "&Help"
+	item "&Help file..." frame_help "..\\docs\\SDKDocumentation.chm:43"
+	item "&About UI Builder..." frame_about "About.html"
+	
+section tab
+menu "tab"
+//	item "Edit Toolbar" frame_edittool
+//	separator
+	item "Close Tab" frame_tab
+	item "Close All Tabs" frame_alltab
+	item "Close All Empty Tabs" frame_emptytab
+

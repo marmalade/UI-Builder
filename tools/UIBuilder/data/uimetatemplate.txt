@@ -1,0 +1,415 @@
+#generic iwui classes
+
+class CIwUIElementEventHandler CIwManaged
+{
+	option viewergroup
+}
+
+class CIwPropertySet CIwManaged
+{
+	option viewergroup
+	group classes * ; text "Property Sub Set"
+	{
+		member extraclass extraclass ; commented
+	}
+	member parent ptr CIwPropertySet ; exporter "style" ; usedefault ; altName style ; priority 7
+}
+class CIwUIPropertySet CIwPropertySet
+{
+	option viewergroup
+}
+
+class CIwUIStylesheet CIwManaged
+{
+	option viewergroup
+	member parent ptr CIwUIStylesheet ; priority 7
+	child * CIwUIPropertySet
+}
+
+baseclass CIwUIDrawableBorder
+{
+	option viewergroup
+	member material ptr CIwMaterial ; exporter "mat" ; usedefault ; priority 4
+	member texture file texture ; priority 4
+	member imageColour colour 255 255 255 255 ; priority 4
+	member uv0 { short short }
+	member uv1 { short short }
+	member border { short short } ; priority 4
+	member shrinkDontCrop bool
+}
+baseclass CIwUIDrawableImage
+{
+	option viewergroup
+	member material ptr CIwMaterial ; exporter "mat" ; usedefault ; priority 4
+	member texture file texture ; priority 4
+	member imageColour colour 255 255 255 255 ; priority 4
+	member uv0 { short short }
+	member uv1 { short short }
+}
+baseclass CIwUIDrawableText
+{
+	option viewergroup
+	member caption string ; priority 5
+	member localiseCaption string
+	member font file font ; priority 4
+	member textColour colour 255 255 255 255 ; priority 4
+	member alignH enum left|centre|right ; priority 5
+	member alignV enum top|middle|bottom
+	member oneLine bool
+}
+class IIwUIDrawable
+{
+	option viewergroup
+	member drawableType enum border|image|text ; nodefault ; classselector CIwUIDrawableBorder|CIwUIDrawableImage|CIwUIDrawableText
+}
+
+baseclass CIwUIPositionPolicy
+{
+	option viewergroup
+	member alignH enum left|centre|right ; altName align ; priority 5
+	member alignV enum top|middle|bottom
+}
+baseclass CIwUISizePolicy
+{
+	option viewergroup
+	group sizePolicy 1
+	{
+		member sizeMin { int int } 0 0 0
+		member sizeMax { int int } -1 -1
+		member sizeHint { int int } -1 -1
+		member aspectRatio { int int }
+	}
+}
+
+class CIwUIFocusHandler CIwManaged {
+	option viewergroup
+}
+class CIwUIFocusHandler2D CIwUIFocusHandler {
+	option viewergroup
+}
+
+baseclass CIwUIFocusHandler2DProperties
+{
+	option viewergroup
+	group focusHandler2D 1
+	{
+		member wrapLeft enum none|wrap|stop
+		member wrapRight enum none|wrap|stop
+		member wrapUp enum none|wrap|stop
+		member wrapDown enum none|wrap|stop
+	}
+}
+class CIwUIFocusHandlerTab CIwUIFocusHandler {
+	option viewergroup
+}
+
+baseclass CIwUILayoutItem CIwManaged
+{
+	option viewergroup
+	member style ptr CIwPropertySet ; exporter "style" ; usedefault ; priority 7
+}
+
+baseclass CIwUILayoutFormDimension
+{
+	option viewergroup
+	member val int
+	member coord enum default|left|top|right|bottom
+	member guide string
+}
+
+class CIwUILayoutItemContainer CIwUILayoutItem
+{
+	option viewergroup
+	member border { short short }
+	template CIwUIPositionPolicy
+	member order short
+
+	group grid 0
+	{
+		member row short
+		member column short
+		member rowSpan short 1
+		member columnSpan short 1
+	}
+	member left class + CIwUILayoutFormDimension
+	member right class + CIwUILayoutFormDimension
+	member top class + CIwUILayoutFormDimension
+	member bottom class + CIwUILayoutFormDimension
+	child + CIwUILayoutItem
+}
+class CIwUILayoutSpacer CIwUILayoutItem
+{
+	option viewergroup
+	template CIwUISizePolicy
+}
+class CIwUILayout CIwUILayoutItem
+{
+	option viewergroup
+	member sizeToSpace bool
+	member element class * CIwUILayoutItemContainer
+}
+class CIwUILayoutVertical CIwUILayout
+{
+	option viewergroup
+	member spacing short
+}
+class CIwUILayoutHorizontal CIwUILayout
+{
+	option viewergroup
+	member spacing short
+}
+class CIwUILayoutForm CIwUILayout
+{
+	option viewergroup
+	member formSize { int int }
+}
+
+class CIwUILayoutGridFile
+{
+	option viewergroup
+	member widthMin int
+	member heightMin int
+	member widthMax int
+	member heightMax int
+}
+class CIwUILayoutGrid CIwUILayout
+{
+	option viewergroup
+	member numColumns short ; priority 3
+	member numRows short ; priority 3
+
+	# Reinstate this when the tool understands it
+	# member column class * CIwUILayoutGridFile
+	# member row class * CIwUILayoutGridFile
+}
+
+class CIwUIElement CIwManaged
+{
+	option viewergroup
+	member pos { int int } ; altName position ; notinextraclass ; exporter "!layout" ; usedefault
+	member size { int int } ; notinextraclass ; exporter "!layoutsize" ; usedefault
+	member offset { int int }
+	member rotation int 0
+	member scale float 1
+	member style ptr CIwPropertySet ; notinextraclass ; exporter "style" ; usedefault ; priority 7
+	member colour colour 255 255 255 255 ; priority 4
+	member layout ptr CIwUILayout
+	member focusHandler ptr CIwUIFocusHandler
+	member slot int
+
+	template CIwUISizePolicy
+	template CIwUIFocusHandler2DProperties
+
+	group flags 1
+	{
+		member updatable bool
+		member visible bool true
+		member clipped bool
+		member sizeToContent bool ; priority 2
+		member modulatesColour bool
+	}
+
+	child * CIwUIElement ; notinextraclass
+	child + CIwUIFocusHandler ; notinextraclass
+	child + CIwUILayout ; notinextraclass
+}
+class CIwUIButton CIwUIElement
+{
+	option viewergroup
+	template CIwUIDrawableText
+
+	member enabled bool true
+	member buttonUp ptr CIwPropertySet IIwUIDrawable ; priority 4
+	member buttonDown ptr CIwPropertySet IIwUIDrawable ; priority 4
+	member buttonDisabled ptr CIwPropertySet IIwUIDrawable ; priority 4
+	member focus ptr CIwPropertySet IIwUIDrawable
+
+	member margin { short short }
+	group colours 1
+	{
+		member colourDisabled colour 255 255 255 255
+		member downCaptionColour colour 255 255 255 255
+		member disabledCaptionColour colour 255 255 255 255
+	}
+	member OnButtonClick { string * }
+}
+class CIwUICheckbox CIwUIElement
+{
+	option viewergroup
+	template CIwUIDrawableText
+
+	member checked bool
+	member margin { short short }
+	member boxSize { int int }
+	group drawables 1
+	{
+		member boxStyle ptr CIwPropertySet IIwUIDrawable
+		member crossStyle ptr CIwPropertySet IIwUIDrawable
+		member background ptr CIwPropertySet IIwUIDrawable
+		member focus ptr CIwPropertySet IIwUIDrawable
+	}
+	member OnCheckboxChecked { string * }
+}
+class CIwUIImage CIwUIElement
+{
+	option viewergroup
+	template CIwUIDrawableBorder
+}
+class CIwUILabel CIwUIElement
+{
+	option viewergroup
+	template CIwUIDrawableText
+
+	member margin { short short }
+	member background ptr CIwPropertySet IIwUIDrawable
+}
+class CIwUIAlertDialog CIwUIElement
+{
+	option viewergroup
+	member margin { short short }
+	member spacing short
+	member labelStyle ptr CIwPropertySet CIwUILabel
+	member buttonStyles { ptr CIwPropertySet CIwUIButton * }
+	member background ptr CIwPropertySet IIwUIDrawable
+	member OnAlertDialogButtonClick { string * }
+}
+class CIwUIProgressBar CIwUIElement
+{
+	option viewergroup
+	template CIwUIDrawableImage
+
+	member background ptr CIwPropertySet IIwUIDrawable
+	member scaleDontCrop bool
+	member margin { short short }
+	member progress float
+}
+class CIwUIRadioButton CIwUIButton
+{
+	option viewergroup
+	member selectedCaptionColour colour 255 255 255 255
+	member buttonSelected ptr CIwPropertySet IIwUIDrawable
+	member OnRadioButtonSelected { string * }
+}
+class CIwUIScrollableView CIwUIElement
+{
+	option viewergroup
+	member scrollToFocus bool
+	member scrollBarSize { int int }
+	member horizontalScrollBar ptr CIwPropertySet IIwUIDrawable
+	member verticalScrollBar ptr CIwPropertySet IIwUIDrawable
+}
+class CIwUISlider CIwUIElement
+{
+	option viewergroup
+	member colourDisabled colour 255 255 255 255
+	group drawables 1
+	{
+		member background ptr CIwPropertySet IIwUIDrawable
+		member marker ptr CIwPropertySet IIwUIDrawable
+		member bar ptr CIwPropertySet IIwUIDrawable
+		member focus ptr CIwPropertySet IIwUIDrawable
+	}
+
+	member enabled bool true
+	member margin { short short }
+	member markerOverlaps bool true
+	member markerSize { int int }
+	member sliderStep short
+	member sliderMin short
+	member sliderMax short
+	member sliderValue short
+	member OnSliderChanged { string * }
+}
+class CIwUITabBar CIwUIElement
+{
+	option viewergroup
+	member radioButtonStyles { ptr CIwPropertySet CIwUIButton * }
+	member margin { short short }
+	member enabled bool true
+	member selection short
+	member spacing short
+	member OnTabBarSelected { string * }
+}
+class CIwUITextField CIwUILabel
+{
+	option viewergroup
+	member cursorSize { int int }
+	member cursor ptr CIwPropertySet IIwUIDrawable
+	member focus ptr CIwPropertySet IIwUIDrawable
+	member enabled bool true
+	member keyboardLayout enum default|url|emailAddress
+	member OnTextFieldComplete { string * }
+	member OnTextFieldChanged { string * }
+}
+class CIwUISoftKey CIwUIButton
+{
+	option viewergroup
+	member keyType enum void|character|string|delete|capsLock|capsLockOn|capsLockOff|numLock|enter|close|alphabetPage|symbolsPage|numbersPage|accept
+	member capsLockColour colour 255 255 255 255
+	member keyCharacter string
+	member keyCharacterLower string
+	member keyGroup string
+	member keyMaterial ptr CIwMaterial ; exporter "mat" ; usedefault
+	member keyContent { ptr CIwPropertySet CIwUIDrawableText * }
+}
+class CIwUISoftKeyBalloon CIwUIElement
+{
+	option viewergroup
+	template CIwUIDrawableText
+
+	member material ptr CIwMaterial ; exporter "mat" ; usedefault
+	member displayLength int
+	member balloonSize { int int }
+	member balloonPointerSize { int int }
+	member background ptr CIwPropertySet IIwUIDrawable
+	member backgroundPointer ptr CIwPropertySet IIwUIDrawable
+}
+class CIwUISoftKeyPosition CIwUIElement
+{
+	option viewergroup
+	member isAdvanceKey bool
+}
+class CIwUISoftKeyboard CIwUIElement
+{
+	option viewergroup
+	member cursorDelay int
+	member cursorFlashPeriod int
+}
+
+class CIwUIPickerView CIwUIElement
+{
+	option viewergroup
+	member focus ptr CIwPropertySet IIwUIDrawable
+	member background ptr CIwPropertySet IIwUIDrawable
+	member spacer ptr CIwPropertySet IIwUIDrawable
+	member spacing short
+	member indicator ptr CIwPropertySet IIwUIDrawable
+	member indicatorHeight short
+	member margin { short short }
+	member selectionSet { int * }
+	member OnPickerViewSelection { string * }
+}
+
+class CIwUITableView CIwUIScrollableView
+{
+	option viewergroup
+	member selection int
+	member OnTableViewSelection { string * }
+}
+
+class CIwUITableViewItem CIwUIElement
+{
+	option viewergroup
+	member focus ptr CIwPropertySet IIwUIDrawable
+	member background ptr CIwPropertySet IIwUIDrawable
+	member itemDown ptr CIwPropertySet IIwUIDrawable
+	member itemSelected ptr CIwPropertySet IIwUIDrawable
+	member selected bool
+	member enabled bool true
+	member colourDisabled colour 255 255 255 255
+	member OnTableViewItemSelected { string * }
+}
+
+exporttype gui CIwUIElement CIwPropertySet IIwUIDrawable CIwUIStylesheet CIwUILayoutItem
+exportgroup ui gui
+exportgroup itx gui
