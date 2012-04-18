@@ -1,0 +1,120 @@
+Building the UI Builder
+
+This guide has been written to use Visual Studio C++ 2010 express but it should be possible to build with any version of Visual Studio by changing the buildtype in the relevant mkb/mkf (e.g. vc8 for VS2005 or vc9 for VS2008).  UI Builder can be built from any folder as long as the original folder structure is maintained.  Before building, the uibuilder_setup script must be run to copy necessary files into the sdk, modify SDK files and modify the mkbs to update a number of include paths.
+
+
+Basic build instructions
+
+1)  Install Visual Studio C++ 2010 express
+2)  Install Marmalade
+3)  Unzip the UI Builder zip into your Marmalde SDK root
+    a) run the uibuilder_setup script
+4)  Build the UI Builder (see instructions below)
+    a) find the release/debug mkb (usually <name>.mkb or <name>Debug.mkb)
+    b) run the mkb
+    c) build release/debug depending on chosen mkb
+    d) run from ./tools/UIBuilder
+
+
+Directory Structure
+
+<installation_folder>
+ |-sdk_tools_source             # run uibuilder_setup from here
+ | |-AirplayStudioDirector
+ | |-ASD2_0
+ | | |-ASUIEditor               # editor part of UI Builder (run ASUIEditor.mkb from here)
+ | |   |-iwuiviewer             # s3e part of UI Builder to display the UI (run iwuiviewer.mkb from here)
+ | |   
+ | |-docs                       # documentation (load uibuilder.html)
+ | |-extra                      # extra files to be copied into sdk folder
+ |
+ |-tools                        # output folder
+   |-UIBuilder                  # UI Builder output executable and viewer s86
+   |-wx                         # wx libraries
+
+
+The UI builder is made up of 2 parts:
+    ASUIEditor   - the editor part
+    iwuiviewer   - the s3e part of the UI Builder which displays the UI
+
+    ASUIEditor calls the s3e loader to load up iwviewer then communication is established between them.
+    
+    Important Note: the viewer and the ui builder, are made up of 2 dll's or a dll and an exe. You cannot malloc or new a piece of data in one dll/exe and free or delete it in another. To new or delete you need to have a virtual function on an object in the first, that you call from the second.
+
+mkb files:
+    <sdk>\sdk_tools_source\ASD2_0\ASUIEditor\ASUIEditor.mkb  (or ASUIEditorDebug.mkb for debug version)
+    <sdk>\sdk_tools_source\ASD2_0\ASUIEditor\iwuiviewer\iwuiviewer.mkb
+
+Important files in ASUIEditor
+    IwUIEdMod.cpp           module for the editor system
+    host.cpp                link to the iwviewer part
+    IwUIEdProjectUI.cpp     performs operations on the data
+    IwUIEdData.cpp          data for the editor
+    UIEdAttrPane.cpp        editors for ui, itx and mat files
+    UIEdPalette.cpp         palette of elements (from an expmetapalette.ui file)
+    UIEdPane.cpp            panel to hold the iwviewer
+    UIEdProject.cpp         tree view of the project files
+    UIEdSource.cpp          text editor for project files    
+    
+
+UI Builder dependencies
+    
+    AirplayStudioDirector/
+      asdirector/           main body of code
+      iwattr/               attribute system (used in several tools)
+      iwproject/            project and project setting system
+      iwsourcecontrol/      check files out of a source control system, written for perforce, uses <sdk>\tools\Director\data\sourcecontrol.txt
+      iwstylesheet/         base for controls to maintain common style
+
+    ASD2_0/                 framework used by several Marmalade tools
+      Base/                 basic application, also the root of the data and action (i.e. tool-bar and menu items) systems.
+      Layout/               the windowing and layout system.
+      Files/                set of data for representing files and editors for common file types.
+
+Important files
+    FastDelegate.h          C# like delegate system
+    IwASApp.cpp             application, also stores modules, actions etc.
+    IwASDAction.h           base of the action system, actions are called by menu items and tool-bar buttons.
+    IwASDData.h             base of the data system.
+    IwModule.h              base of the module and layout element systems.
+    IwLayoutFrame.cpp       main window, also handles the main menu.
+    IwLayoutFrameModule.cpp module for the layout system
+    IwLayoutPanel.cpp       layout glue classes, notebooks, sashes etc
+    IwLayoutToolbar.cpp     a tool-bar window, calls actions
+    IwASDFilename.cpp       stores a hierarchy of filenames in a data structure
+    IwASDFile.cpp           file data, also has directory data and other common file type data.
+    IwASDAttr.cpp           editor for world files (and other itx files)
+
+
+Building UI builder: possible issues
+
+1) When building the iwuiviewer component, if it complains that the armcc cannot be found, run s3eConfig and remove RVCT option.
+2) If visual studio complains that it cannot find Windows.h, the option to ignore standard include paths may be on.  Turn it off.
+    
+    
+wxWidgets
+
+The UI Builder uses wxWidgets.  As part of the package, a prebuilt binary package has been included.  Instructions to build wxWidgets from source is detailed below.
+
+Note: this is how to build wxWidgets libraries if they are needed
+    
+1) Download wxWidgets 2.8.x and install
+2) Build wxWidgets
+    a) open <wxWidgets>\build\msw\wx.dsw in VC++ 2008 express
+    b) select unicode debug as the configuration
+    c) select all the projects and select the properties
+    d) set the Configuration Properties/C C++/Code Generation/Runtime Library to Multi-threaded Debug
+    e) rebuild all
+    f) select unicode as the configuration
+    g) select all the projects and select the properties
+    h) set the Configuration Properties/C C++/Code Generation/Runtime Library to Multi-threaded
+    i) rebuild all
+    j) open <wxWidgets>\contrib\build\stc\stc.dsw in VC++ 2008 express
+    k) repeat the steps b to i with stc
+    l) copy the lib and include directories from <wxWidgets> to <Marmalade>\sdk_tools_source\wxWidgets28
+    m) copy the stc directory from<wxWidgets>\contrib\include\wx to <Marmalade>\sdk_tools_source\wxWidgets28\include\wx
+
+Note: you may have to rebuild the wx a couple of times, there may also be in earlier versions (certainly 2.8.0) a
+problem compiling line 316 of dlmsw.cpp, if that is the case change the second parameter (line 314) to:
+        (PENUMLOADED_MODULES_CALLBACK)wxDynamicLibraryDetailsCreator::EnumModulesProc,
+    
