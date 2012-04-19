@@ -312,11 +312,8 @@ bool CIwASDApp::OnInit()
     wxLog::SetActiveTarget(m_Log);
 
     //setup default path (modules could override)
-    //#ifndef ASD_AS_DLL
+    m_DirList[L"resource"]=wxStandardPaths::Get().GetResourcesDir();
     m_DirList[L"viewer"]=wxStandardPaths::Get().GetResourcesDir()+L"/data/";
-    //#else
-    //	m_DirList[L"viewer"]=wxGetCwd()+L"/data/";
-    //#endif
     m_DirList[L"layout"]=L"{viewer}VLayoutShared.svl";
 
     m_DirList[L"user"]=wxStandardPaths::Get().GetUserDataDir();

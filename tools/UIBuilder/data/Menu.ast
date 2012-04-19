@@ -35,8 +35,8 @@ menu "&Preferences"
 	check "Outline Margins" uied_outlinemargins
 	item "&Localisation File..." uied_localisation
 menu "&Help"
-	item "&Help file..." frame_help "..\\docs\\SDKDocumentation.chm:43"
-	item "&About UI Builder..." frame_about "About.html"
+	item "&Help file..." frame_help "uibuilder.html"
+	item "&About UI Builder..." frame_about "data/About.html"
 	
 section tab
 menu "tab"

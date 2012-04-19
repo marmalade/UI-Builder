@@ -23,13 +23,12 @@ Directory Structure
  | |-ASD2_0
  | | |-ASUIEditor               # editor part of UI Builder (run ASUIEditor.mkb from here)
  | |   |-iwuiviewer             # s3e part of UI Builder to display the UI (run iwuiviewer.mkb from here)
- | |   
- | |-docs                       # documentation (load uibuilder.html)
  | |-extra                      # extra files to be copied into sdk folder
  |
  |-tools                        # output folder
    |-UIBuilder                  # UI Builder output executable and viewer s86
    |-wx                         # wx libraries
+   |-docs                       # documentation (load uibuilder.html)
 
 
 The UI builder is made up of 2 parts:
@@ -90,6 +89,7 @@ Building UI builder: possible issues
 1) When building the iwuiviewer component, if it complains that the armcc cannot be found, run s3eConfig and remove RVCT option.
 2) If visual studio complains that it cannot find Windows.h, the option to ignore standard include paths may be on.  Turn it off.
 3) When building the release version of the UI Builder, a warning dialog may pop up mentioning that debug information is not included.  To build the debug version, an mkb with suffix "Debug" is provided.
+4) Resource files may need to be associated with the Visual Studio resource compiler:  Access the property page of the rc file and set Item Type to "Resource Compiler".
     
 wxWidgets
 

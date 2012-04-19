@@ -8,7 +8,7 @@
 
 <Title> is in "Trebuchet MS 9pt Bold"
 <Help> is in "Trebuchet MS 9pt"
-<IWLOGO> is in the resources (File at: c:/dev/sdk/main/resources/iconsAndLogos/Icons/iwlogosml_55x58.bmp)
+<IWLOGO> is in the resources
 
 
 Buttons:

@@ -262,7 +262,7 @@ void CIwLayoutFrame::AboutBox(const wxString& FileName)
     wxHtmlWindow* win=new CIwAbout(&Dlg);
     sizer->Add(win,1,wxEXPAND);
 
-    win->LoadFile(CIwTheApp->MakeAbsoluteFilename(L"{viewer}"+FileName));
+    win->LoadFile(CIwTheApp->MakeAbsoluteFilename(L"{resource}/"+FileName));
 
     wxSize Size=Dlg.GetMinSize();
     win->SetScrollRate(20,20);
@@ -276,25 +276,9 @@ void CIwLayoutFrame::AboutBox(const wxString& FileName)
 //--------------------------------------------------------------------------------
 void CIwLayoutFrame::LoadHelp(const wxString& Args)
 {
-#ifdef I3D_OS_WINDOWS
-    wxString env;
-    wxGetEnv(L"S3E_DIR",&env);
-    wxString File;
-    wxString Action=L"0";
-
-    if (Args.Find(L":")==-1)
-        File=wxString::Format(L"%s\\..\\docs\\SDKDocumentation.chm",env.c_str());
-    else
-    {
-        File=wxString::Format(L"%s\\%s",env.c_str(),Args.BeforeFirst(':').c_str());
-        Action=Args.AfterFirst(':');
-    }
-
-    if (Action.empty())
-        ShellExecute(GetHwnd(),NULL,L"hh.exe",File.c_str(),NULL,SW_MAXIMIZE);
-    else
-        ShellExecute(GetHwnd(),NULL,L"hh.exe",wxString(L"-mapid "+Action+L" "+File).c_str(),NULL,SW_MAXIMIZE);
-
+#ifdef I3D_OS_WINDOWS    
+    wxString File = L"file://" + CIwTheApp->MakeAbsoluteFilename(L"{resource}/" + Args);
+    ShellExecute(NULL, L"open", File, NULL, NULL, SW_SHOWNORMAL);
 #endif
 }
 
