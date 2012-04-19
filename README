@@ -7,8 +7,7 @@ Basic build instructions
 
 1)  Install Visual Studio C++ 2010 express
 2)  Install Marmalade
-3)  Unzip the UI Builder zip into your Marmalde SDK root
-    a) run the uibuilder_setup script
+3)  Checkout the UI Builder and run the uibuilder_setup script
 4)  Build the UI Builder (see instructions below)
     a) find the release/debug mkb (usually <name>.mkb or <name>Debug.mkb)
     b) run the mkb
@@ -18,7 +17,7 @@ Basic build instructions
 
 Directory Structure
 
-<installation_folder>
+<checkout>
  |-sdk_tools_source             # run uibuilder_setup from here
  | |-AirplayStudioDirector
  | |-ASD2_0
@@ -90,7 +89,7 @@ Building UI builder: possible issues
 
 1) When building the iwuiviewer component, if it complains that the armcc cannot be found, run s3eConfig and remove RVCT option.
 2) If visual studio complains that it cannot find Windows.h, the option to ignore standard include paths may be on.  Turn it off.
-    
+3) When building the release version of the UI Builder, a warning dialog may pop up mentioning that debug information is not included.  To build the debug version, an mkb with suffix "Debug" is provided.
     
 wxWidgets
 
