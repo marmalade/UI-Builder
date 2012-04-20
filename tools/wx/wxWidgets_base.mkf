@@ -48,7 +48,7 @@ else if {{ defined I3D_OS_OSX }}
 {
     upstream
     {
-        url="./wx-mac.tar.bz2"
+        url="wx-mac.tar.bz2"
         destshared=1
         destenv=WX_ROOT
     }
@@ -86,7 +86,7 @@ else if {{ defined I3D_OS_WINDOWS }}
 
     upstream
     {
-        url="./wx-win32.tar.bz2"
+        url="wx-win32.tar.bz2"
         destshared=1
         destenv=WX_ROOT
     }

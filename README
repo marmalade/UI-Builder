@@ -61,7 +61,7 @@ UI Builder dependencies
       asdirector/           main body of code
       iwattr/               attribute system (used in several tools)
       iwproject/            project and project setting system
-      iwsourcecontrol/      check files out of a source control system, written for perforce, uses <sdk>\tools\Director\data\sourcecontrol.txt
+      iwsourcecontrol/      check files out of a source control system
       iwstylesheet/         base for controls to maintain common style
 
     ASD2_0/                 framework used by several Marmalade tools
