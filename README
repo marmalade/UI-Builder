@@ -8,11 +8,11 @@ Basic build instructions
 1)  Install Visual Studio C++ 2010 express
 2)  Install Marmalade
 3)  Checkout the UI Builder and run the uibuilder_setup script
-4)  Build the UI Builder (see instructions below)
+4)  Build the UI Builder and Viewer in Visual Studio (alternatively, run uibuilder_rebuild.bat to build from console)
     a) find the release/debug mkb (usually <name>.mkb or <name>Debug.mkb)
-    b) run the mkb
+    b) run the mkb to open in Visual Studio
     c) build release/debug depending on chosen mkb
-    d) run from ./tools/UIBuilder
+    d) run from <checkout>/tools/UIBuilder
 
 
 Directory Structure
@@ -40,8 +40,8 @@ The UI builder is made up of 2 parts:
     Important Note: the viewer and the ui builder, are made up of 2 dll's or a dll and an exe. You cannot malloc or new a piece of data in one dll/exe and free or delete it in another. To new or delete you need to have a virtual function on an object in the first, that you call from the second.
 
 mkb files:
-    <sdk>\sdk_tools_source\ASD2_0\ASUIEditor\ASUIEditor.mkb  (or ASUIEditorDebug.mkb for debug version)
-    <sdk>\sdk_tools_source\ASD2_0\ASUIEditor\iwuiviewer\iwuiviewer.mkb
+    <checkout>\sdk_tools_source\ASD2_0\ASUIEditor\ASUIEditor.mkb  (or ASUIEditorDebug.mkb for debug version)
+    <checkout>\sdk_tools_source\ASD2_0\ASUIEditor\iwuiviewer\iwuiviewer.mkb
 
 Important files in ASUIEditor
     IwUIEdMod.cpp           module for the editor system
