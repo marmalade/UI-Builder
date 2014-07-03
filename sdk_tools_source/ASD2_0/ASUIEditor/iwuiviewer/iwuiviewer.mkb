@@ -4,6 +4,7 @@ defines
 
 	# Ensure we don't include iwui as an extproject
 	IW_MKF_IWVIEWER
+    IW_USE_LEGACY_MODULES
 }
 
 if {{ os.name == 'nt' }}
